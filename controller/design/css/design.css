@@ -1,0 +1,31 @@
+#page{
+	width: 1000px;
+	margin: auto;
+}
+
+#body{
+	margin-top: 100px;
+	min-height: 500px;
+}
+
+#foot{
+	padding-left: 80%;
+	background-color: @gray-lighter;
+	height: 100px;
+}
+
+.recherche{
+	margin-left: 320px;
+}
+
+.formulaireRecherche{
+	margin-top: 100px;
+	margin-left: 180px;
+}
+
+#formulaire{
+	margin-top: 100px;
+	margin-left: 180px;
+	width: 600px;
+	min-height: 300px;
+}

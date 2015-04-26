@@ -1,6 +1,6 @@
 <?php
 
-class Connexion{
+class connexion{
 
 	private $host;
 	private $user;
