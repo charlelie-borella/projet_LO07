@@ -1,0 +1,15 @@
+@gray-lighter: lighten(#000, 93.5%);
+
+#page{
+	width: 1000px;
+	margin: auto;
+}
+
+#body{
+	min-height: 100%;
+}
+
+#foot{
+	background-color: @gray-lighter;
+	height: 100px;
+}
