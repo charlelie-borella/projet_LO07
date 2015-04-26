@@ -5,9 +5,6 @@ class messagevoyage {
 	private $destinataireID;
 	private $message;
 	private $dateMessage; 
-	
-/*ce serait peut être mieux de mettre vehicule au lien de voiture 
-=> il y a voiture dans le BD*/
 
 
 function __construct($idMessage, $propietaireID, $destinataireID, $message, $dateMessage) {
@@ -52,7 +49,7 @@ function __construct($idMessage, $propietaireID, $destinataireID, $message, $dat
     function setProprietaireID($propietaireID) {
         $this->propietaireID = $propietaireID;
     }
-    
+
     function setDestinataireID($destinataireID) {
         $this->destinataireID = $destinataireID;
     }

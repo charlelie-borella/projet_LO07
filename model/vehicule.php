@@ -1,12 +1,12 @@
 
 <?php
 class vehicule {
-	private $idVehicule;
-	private $nbPlace;
-	private $marque;
-	private $modele;
-	private $photo_vehicule; 
-	private $confort;
+	private $idVehicule = "";
+	private $nbPlace = "";
+	private $marque = "";
+	private $modele = "";
+	private $photo_vehicule = ""; 
+	private $confort = "";
 /*ce serait peut être mieux de mettre vehicule au lien de voiture 
 => il y a voiture dans le BD*/
 
