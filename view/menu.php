@@ -23,7 +23,7 @@ html;
          <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">              
-                <li><a href="trajet.php">Proposer un trajet</a></li>
+                <li><a href="creationTrajet.php">Proposer un trajet</a></li>
               </ul>
               <ul class="nav navbar-nav">          
               </ul>

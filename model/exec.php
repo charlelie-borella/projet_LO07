@@ -20,11 +20,7 @@ class Exec{
 		foreach ($data as $key => $value) {
 			$insert.=$key . "(";
 			$i=0;
-			foreach ($value as $key1 => $value1) {
-				if(!mb_check_encoding($value1, 'UTF-8'))
-				{
-					echo "ERREUR ENCODAGE";
-				}	
+			foreach ($value as $key1 => $value1) {				
 				$values.="'". $value1 . "'";
 				$insert.= $key1;
 				$i++;

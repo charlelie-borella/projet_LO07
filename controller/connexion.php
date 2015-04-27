@@ -6,7 +6,7 @@ require_once("../view/connexion.php");
 require_once("../view/foot.php");
 
       
-$html= headerSite("index");
+$html= headerSite("connexion");
 $html.= menu();
 $html.= formulaireConnexion("connexionTraitement.php");
 $html.= foot();

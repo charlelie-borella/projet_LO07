@@ -6,7 +6,7 @@ require_once("../view/inscription.php");
 require_once("../view/foot.php");
 
       
-$html= headerSite("index");
+$html= headerSite("inscription");
 $html.= menu();
 $html.= formulaire("inscriptionTraitement.php");
 $html.= foot();
