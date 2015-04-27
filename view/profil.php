@@ -4,8 +4,6 @@ function contenu() {
 
 $html=<<<html
 
-<link rel="stylesheet" href="profil.css" />
-
 <ul class="nav nav-tabs">
   <li role="presentation" class="active"><a href="#">Votre Profil</a></li>
   <li role="presentation"><a href="#">Vos Annonces</a></li>
@@ -17,42 +15,60 @@ $html=<<<html
 </ul>
 
 <p>
-<article>
-<aside>
-  <h1>Bonjour</h1>
-  <p id="photo_profil"><img src="../imageprofil/visueldefaut.jpg" alt="image par défaut" /></p>
-  <p>Laisse-moi le temps de me présenter : je m'appelle Zozor, je suis né un 23 novembre 2005.</p>
-  <p>Ma description.</p
-</aside>
-</article>
+<div class="thumbnail">
+<div class="media">
+  <div class="media-left media-middle">
+    <a href="#">
+      <img class="media-object" src="../imageprofil/visueldefaut.jpg" alt="image par défaut">
+    </a>
+  </div>
+  <div class="media-body">
+    <h3 class="media-heading">Votre profil </h3>
+    Je suis XXXX, je suis étudiant en droit à l'université Assas à Paris.
+    
+  </div>
+</div>
+</div>
+<a href="#" class="btn btn-default" role="button">Modifier votre description</a>
 </p>
 
-<p>
-<article>
-<aside>
-  <div class="pref">
-    <h4>Vos préférences : </h4>
-        <p>je suis bavarde</p>
-        <p>je ne fume pas</p>
-        <p><a href="#" class="btn btn-default" role="button">Modifier mes préférences</a></p>
-    </div>
-</aside>
-</article>
-</p>
 
 <p>
-<article>
-<aside>
-  <div class="vehicule">
-    <h4>Votre véhicule : </h4>
-      <p id="photo_profil"><img  src="../ImagesBlablacar/voituredefaut.png" alt="Votre vehicule" /></p>
-        <p>Couleur : </p>
-        <p>Confort : </p>
-        <p><a href="#" class="btn btn-default" role="button">Modifier mon véhicule</a></p>
-    </div>
-</aside>
-</article>
-</p>
+<div class="thumbnail">
+<div class="media">
+  <div class="media-left media-middle">
+    <a href="#">
+      <img class="media-object" src="" alt="">
+    </a>
+  </div>
+  <div class="media-body">
+    <h3 class="media-heading">Vos préférences</h3>
+    J'aime bien les animaux. J'aime écouter de la musique.
+  </div>
+</div>
+</div>
+
+<a href="#" class="btn btn-default" role="button">Modifier vos préférences</a>
+<p>
+
+
+<p>
+<div class="thumbnail">
+<div class="media">
+  <div class="media-left media-middle">
+    <a href="#">
+      <img class="media-object" src="../ImagesBlablacar/voituredefaut.png" alt="Voiture">
+    </a>
+  </div>
+  <div class="media-body">
+    <h3 class="media-heading">Votre véhicule</h3>
+  </div>
+</div>
+</div>
+
+<a href="#" class="btn btn-default" role="button">Modifier</a>
+<p>
+
 
 html;
 	return $html;
