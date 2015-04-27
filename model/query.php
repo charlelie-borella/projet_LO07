@@ -5,23 +5,30 @@ require_once ("connexionBD.php");
 class Query{
 	
 	private $myBase;
+	private $resQuery;
 
 	function __construct($myBase){
 		$this->myBase=$myBase;
 	}
 
+	//Retourne le resultat de la requête brute après interrogation de la base de données
+	function getQuery(){
+		return $this->resQuery;
+	}
+
+	//Exécute une requête, stock le resultat dans resQuery
 	function queryBD($query){
 		try{
-			return $this->myBase->query($query);
+			$this->resQuery = $this->myBase->query($query);
 		}catch(PDOException $e){
 			die("Error: " . $e->getMessage());
 		}	
 	}
 
-	//Récupère juste la requête et le stock dans un tableau
-	function recoverQuery($res){
+	//Retourne le resultat de la requête resQuery sous forme de tableau
+	function recoverQueryInArray(){
 		$tab = array();
-		while($row = $res->fetch(PDO::FETCH_ASSOC)){
+		while($row = $this->resQuery->fetch(PDO::FETCH_ASSOC)){
 			$tab[]=$row;
 		}
 		// echo "<pre>";

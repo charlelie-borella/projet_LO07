@@ -14,7 +14,26 @@ function menu(){
                 <span class="icon-bar"></span>
               </button>
               <a class="navbar-brand" href="index.php">Covoiturage</a>
-            </div>          
+            </div>
+html;
+
+  if(isset($_SESSION['membre'])){
+      $html.=<<<html
+         <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">          
+              </ul>
+              <ul class="nav navbar-nav navbar-right">           
+                <li><a href="profil.php">Profil</a></li>
+                <li><a href="deconnexion.php">Se déconnecter</a></li>            
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+html;
+
+  }
+  else{
+    $html.=<<<html
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">          
@@ -24,9 +43,10 @@ function menu(){
                 <li><a href="connexion.php">Se connecter</a></li>            
               </ul>
             </div><!-- /.navbar-collapse -->
-          </div><!-- /.container-fluid -->
-        </nav>
+          </div><!-- /.container-fluid -->   
 html;
+  }
 
+  $html.="</nav>";
 	return $html;
 }

@@ -2,6 +2,7 @@
 
 require_once("../view/header.php");
 require_once("../view/menu.php");
+require_once("../view/connexion.php");
 require_once("../view/foot.php");
 
       

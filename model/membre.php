@@ -18,7 +18,7 @@ class membre {
 
 
 function __construct($idMembre, $nom, $prnom, $password, $adresse, $cp, $ville, $pays, $tel, $mail, $note, $photoProfil, $dateNais, $vehiculeID, $compteID) {
-        echo "<pre>$idMembre, $nom, $prnom, $password, $adresse, $cp, $ville, $pays, $tel, $mail, $note, $photoProfil, $dateNais, $vehiculeID, $compteID</pre><br/>\n";
+        //echo "<pre>$idMembre, $nom, $prnom, $password, $adresse, $cp, $ville, $pays, $tel, $mail, $note, $photoProfil, $dateNais, $vehiculeID, $compteID</pre><br/>\n";
         $this->setIdMembre($idMembre);
         $this->setNom($nom);
         $this->setPrnom($prnom);
