@@ -1,12 +1,12 @@
 <?php
 
-function contenu(){
+function contenu($action){
 
 $html=<<<html
 	<div id="body">
           <h3 class="titre">Rechercher un covoiturage</h3>
 
-          <form class="form-inline formulaireRecherche">
+          <form class="form-inline formulaireRecherche" action="$action" method="POST">
             <div class="form-group">
               <label class="sr-only" for="de">Ville de départ</label>
               <input type="text" class="form-control" id="de" placeholder="Ville de départ">

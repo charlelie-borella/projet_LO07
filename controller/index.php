@@ -10,7 +10,7 @@ session_start();
       
 $html= headerSite("index");
 $html.= menu();
-$html.= contenu();
+$html.= contenu("trajet.php");
 $html.= foot();
 
 echo $html;

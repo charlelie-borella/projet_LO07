@@ -15,9 +15,9 @@ if(!isset($_SESSION['membre'])){
 		isset($_POST["annee"]) && !empty($_POST["annee"])){
 
 		$password = md5($_POST["password"]);
-		$nom = $_POST["nom"];
-		$mail = $_POST["mail"];
-		$prnm = $_POST["prnm"];
+		$nom = htmlspecialchars($_POST["nom"]);
+		$mail = htmlspecialchars($_POST["mail"]);
+		$prnm = htmlspecialchars($_POST["prnm"]);
 		$photo = "";
 
 		if(isset($_FILES['photo']['name']) && !empty($_FILES['photo']['name'])){

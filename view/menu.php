@@ -14,13 +14,17 @@ function menu(){
                 <span class="icon-bar"></span>
               </button>
               <a class="navbar-brand" href="index.php">Covoiturage</a>
-            </div>
+              </div>
+            
 html;
 
   if(isset($_SESSION['membre'])){
       $html.=<<<html
          <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">              
+                <li><a href="trajet.php">Proposer un trajet</a></li>
+              </ul>
               <ul class="nav navbar-nav">          
               </ul>
               <ul class="nav navbar-nav navbar-right">           

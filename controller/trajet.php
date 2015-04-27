@@ -7,6 +7,7 @@ require_once("../view/foot.php");
 require_once("../model/exec.php");
 require_once("../model/query.php");
 
+session_start();
       
 $html= headerSite("index");
 $html.= menu();

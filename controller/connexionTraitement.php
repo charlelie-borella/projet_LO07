@@ -12,7 +12,7 @@ session_start();
 if(!isset($_SESSION['membre'])){
 	if(isset($_POST['mail']) && isset($_POST['password'])){
 
-		$mail = $_POST["mail"];
+		$mail = htmlspecialchars($_POST["mail"]);
 		$password = md5($_POST["password"]);
 
 		$query = new Query($myBase->getMyBase());
