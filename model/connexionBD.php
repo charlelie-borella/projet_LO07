@@ -1,6 +1,6 @@
 <?php
 
-class connexion{
+class ConnexionBD{
 
 	private $host;
 	private $user;
@@ -20,7 +20,8 @@ class connexion{
 	//Démarre la connexion à la base de données
 	function initConnect(){
 		try{
-			$this->myBase = new PDO($this->dataSourceName, $this->user, $this->password);	
+			$this->myBase = new PDO($this->dataSourceName, $this->user, $this->password);
+			$this->myBase->exec("SET CHARACTER SET utf8");
 		}catch(PDOException $e){
 			die("Error: " . $e->getMessage());
 		}

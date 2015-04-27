@@ -1,18 +1,38 @@
 <?php
 
-require_once ("exec.php");
-require_once ("user.php");
-require_once ("query.php");
+require_once ("../model/exec.php");
+require_once ("../model/query.php");
+include("initBD.php");
 
-
-$nom = $_POST["nom"];
-$prnm = $_POST["prnm"];
-$email = $_POST["email"];
-$password = $_POST["password"];
+$nom;
+$prnm;
+$mail;
+$password;
 
 
 // $first_name= "test";
 // $password = "test";
 
-	$myBase = new Connexion("localhost", "root", "root", "covoiturage");
-	$myBase->initConnect();
+if(isset($_POST["nom"]) && !empty($_POST["nom"])){
+	$nom = $_POST["nom"];
+}
+if(isset($_POST["prnm"]) && !empty($_POST["prnm"])){
+	$prnm = $_POST["prnm"];
+}
+if(isset($_POST["mail"]) && !empty($_POST["mail"])){
+	$mail = $_POST["mail"];
+}
+if(isset($_POST["password"]) && !empty($_POST["password"])){
+	$password = $_POST["password"];
+}
+
+
+$exec = new Exec($myBase->getMyBase());
+
+$tab = array('membre'=>array('nom'=>$nom, 'prnm'=>$prnm, 'mail'=>$mail, 'password'=>$password));
+$query = $exec->createExecFromArray($tab);
+
+$exec->execBD($query);
+
+
+header('Location: index.php'); 

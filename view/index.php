@@ -4,7 +4,7 @@ function contenu(){
 
 $html=<<<html
 	<div id="body">
-          <h3 class="recherche">Rechercher un covoiturage</h3>
+          <h3 class="titre">Rechercher un covoiturage</h3>
 
           <form class="form-inline formulaireRecherche">
             <div class="form-group">

@@ -14,7 +14,7 @@
 	height: 100px;
 }
 
-.recherche{
+.titre{
 	margin-left: 320px;
 }
 
@@ -24,7 +24,7 @@
 }
 
 #formulaire{
-	margin-top: 100px;
+	margin-top: 70px;
 	margin-left: 180px;
 	width: 600px;
 	min-height: 300px;
