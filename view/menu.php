@@ -24,22 +24,41 @@ html;
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
 html;
-            if($page == "creationTrajet.php"){
-              $html.="<li><a href='index.php'>Rechercher un trajet</a></li>";
-              $html.="<li class='active'><a href='creationTrajet.php'>Proposer un trajet</a></li>";
-            }else{
+            if($page == "index.php"){
               $html.="<li class='active'><a href='index.php'>Rechercher un trajet</a></li>";
-              $html.="<li><a href='creationTrajet.php'>Proposer un trajet</a></li>";
+            }
+            else{
+              $html.="<li><a href='index.php'>Rechercher un trajet</a></li>";
+            }
+            if($page == "creationTrajet.php") {
+              $html.="<li class='active'><a href='creationTrajet.php'>Proposer un trajet</a></li>";
+            }
+            else{
+               $html.="<li><a href='creationTrajet.php'>Proposer un trajet</a></li>";
             }
                 
       $html.=<<<html
               </ul>
-              <ul class="nav navbar-nav">          
+              <ul class="nav navbar-nav">
               </ul>
-              <ul class="nav navbar-nav navbar-right">           
-                <li><a href="profil.php">Profil</a></li>
-                <li><a href="deconnexion.php">Se déconnecter</a></li>            
-              </ul>
+              <ul class="nav navbar-nav navbar-right">
+html;
+              if($page == "profil.php"){
+               $html.="<li class='active'><a href='profil.php'>Profil</a></li>";
+              }
+              else{
+                $html.="<li><a href='profil.php'>Profil</a></li>"; 
+              }
+
+              if($page == "deconnexion.php"){
+               $html.="<li class='active'><a href='deconnexion.php'>Se déconnecter</a></li>";    
+              }
+              else{
+                $html.="<li><a href='deconnexion.php'>Se déconnecter</a></li>"; 
+              }
+
+          $html.=<<<html
+               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
 html;

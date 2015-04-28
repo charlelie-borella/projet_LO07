@@ -20,8 +20,9 @@ class Exec{
 		foreach ($data as $key => $value) {
 			$insert.=$key . "(";
 			$i=0;
-			foreach ($value as $key1 => $value1) {				
-				$values.="'". $value1 . "'";
+			foreach ($value as $key1 => $value1) {
+				
+				$values.="'". $value1 . "'";			
 				$insert.= $key1;
 				$i++;
 				if($i < sizeof($data[$key])){

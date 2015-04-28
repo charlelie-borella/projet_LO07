@@ -7,9 +7,10 @@ require_once("../view/foot.php");
 require_once("../model/membre.php");
 session_start();
 
-      
+$file = basename(__FILE__);     
+
 $html= headerSite("index");
-$html.= menu();
+$html.= menu($file);
 $html.= contenu("traitementListeTrajet.php");
 $html.= foot();
 

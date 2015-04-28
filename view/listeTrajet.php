@@ -33,13 +33,13 @@ function trajet($active, $heure, $nbPlace, $prix, $idTrajet, $idPassager){
 		<tr><td>$heure
 		<td>$nbPlace
 			<td>$prix €			  	  
-			<td><form>
+			<td>
 html;
 		if($active){
 			$html.=<<<html
-				<form><button type='submit' class='btn btn-default'>Réserver</button>
-				<input type="hidden" name="idTrajet" value="$idTrajet">
-				<input type="hidden" name="idPassager" value="$idPassager">
+				<form action="reservationTraitement.php" method="POST">
+				<button type='submit' class='btn btn-default'>Réserver</button>
+				<input type="hidden" name="idTrajet" value="$idTrajet">				
 				</form>
 html;
 		}
