@@ -10,9 +10,8 @@ $html=<<<html
 <ul class="nav nav-tabs">
   <li role="presentation" class="active"><a href="#">Votre Profil</a></li>
   <li role="presentation"><a href="annonces.php">Vos Annonces</a></li>
-  <li role="presentation"><a href="#">Vos réservations</a></li>
+  <li role="presentation"><a href="reservations.php">Vos réservations</a></li>
   <li role="presentation"><a href="#">Messages</a></li>
-  <li role="presentation"><a href="#">Alertes</a></li>
   <li role="presentation"><a href="#">Avis</a></li>
   <li role="presentation"><a href="#">Profil</a></li>
 </ul>
