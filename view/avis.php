@@ -3,6 +3,10 @@
 
 require_once("../model/membre.php");
 
+//Pour laisser un avis à quelqu'un :
+// <textarea class="form-control" rows="3"></textarea>
+
+//Navigateur
 function nav() {
 
 $html=<<<html
@@ -19,6 +23,7 @@ $html=<<<html
 html;
 	return $html;
 }
+
  //Avis reçus
 function AvisR($idPassager, $dateTrajet, $villeDep, $villeAr, $prix, $nbPlace) {
   $html=<<<html
@@ -30,6 +35,7 @@ function AvisR($idPassager, $dateTrajet, $villeDep, $villeAr, $prix, $nbPlace) {
       <th>Nom de la personne</th>
       <th>Satisfaction</th>
       <th>Commentaire laissé</th>
+
       <th>Evaluation de la conduite</th>
       <th>Date du trajet</th>
       </tr></p>
