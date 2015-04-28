@@ -55,7 +55,7 @@ function formulaireCreationTrajet($action){
 		    <div class="col-sm-10">		    
 				<label class="sr-only" for="prix">Amount (in euro)</label>
 				<div class="input-group">
-				      	<input type="text" class="form-control" id="prix" placeholder="Ex: 10">
+				      	<input type="text" name="prix" class="form-control" id="prix" placeholder="Ex: 10">
 				    <div class="input-group-addon">€</div>
 				</div>
 		    </div>

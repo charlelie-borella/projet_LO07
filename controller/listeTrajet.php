@@ -5,8 +5,7 @@ require_once("../view/menu.php");
 require_once("../view/foot.php");
 require_once("../view/listeTrajet.php");
 require_once("../model/trajet.php");
-require_once("../model/exec.php");
-require_once("../model/query.php");
+require_once("../model/membre.php");
 
 session_start();
       
@@ -30,11 +29,14 @@ if(isset($_SESSION['listeTrajet'])){
 	foreach ($_SESSION['listeTrajet'] as $key => $value) {
 
 		$heure = $value->getHeure();
-		$nbPlace = $value->getNbPlace();
+		$placePrise = $_SESSION['placeRestante'][$value->getidTrajet()];
+		$nbPlace = $placePrise . "/".$value->getNbPlace();		
 		$prix = $value->getPrix();
-
+		$idTrajet = $value->getIdTrajet();
+		$idPassager = $_SESSION['membre']->getIdMembre();
+		$bol = $placePrise < $value->getNbPlace();
 	
-		$html.= trajet($heure, $nbPlace, $prix);
+		$html.= trajet($bol, $heure, $nbPlace, $prix, $idTrajet, $idPassager);
 	}
 
 	$html.= fin();

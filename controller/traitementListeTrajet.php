@@ -24,12 +24,29 @@ if(isset($_POST['villeDep']) && isset($_POST['villeAr']) && isset($_POST['date']
 	// echo "</pre>";
 	$res = $query->recoverQueryInArray();
 
+
 	$listeTrajet = array();
 	foreach ($res as $key => $value) {		
 		$listeTrajet[] = new trajet($res[$key]['idTrajet'], $res[$key]['conducteurID'],"", $res[$key]['dateTrajet'], $res[$key]['villeDepart'], $res[$key]['villeArrivee'], $res[$key]['prix'], $res[$key]['nbPlace']);
 	}		
 
 	$_SESSION['listeTrajet'] = $listeTrajet;
+
+	$placeRestante= array();
+	//recherche du nombre de personne déjà inscrite à un trajet
+	foreach ($listeTrajet as $key => $value) {
+		
+		$query2 = new Query($myBase->getMyBase());
+		$myQuery2 = "SELECT count(idVoyage) FROM voyage WHERE idTrajet=". $value->getIdTrajet();
+		$resQuery = $query2->queryBD($myQuery2);
+		
+		while($row = $resQuery->fetch(PDO::FETCH_ASSOC)){
+			$placeRestante[$value->getIdTrajet()]= $row['count(idVoyage)'];
+		}
+	}
+
+	$_SESSION["placeRestante"] = $placeRestante;
+	
 
 	header('Location: listeTrajet.php'); 
 

@@ -12,7 +12,7 @@ class trajet {
 
 function __construct($idTrajet, $conducteurID, $dateAnnonce, $dateTrajet, $villeDepart, $villeArrivee, $prix, $nbPlace) {
         //echo "<pre>$idTrajet, $conducteurID, $dateAnnonce, $dateTrajet, $villeDepart, $villeArrivee, $prix, $nbPlace</pre><br/>\n";
-        $this->setIdTrajet($conducteurID);
+        $this->setIdTrajet($idTrajet);
         $this->setConducteurID($conducteurID);
         $this->setDateAnnonce($dateAnnonce);
         $this->setDateTrajet($dateTrajet);

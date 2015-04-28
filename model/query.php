@@ -20,12 +20,13 @@ class Query{
 	function queryBD($query){
 		try{
 			$this->resQuery = $this->myBase->query($query);
+			return $this->resQuery;
 		}catch(PDOException $e){
 			die("Error: " . $e->getMessage());
 		}	
 	}
 
-	//Retourne le resultat de la requête resQuery sous forme de tableau
+	//Retourne le resultat de la requête resQuery sous forme de tableau 2D
 	function recoverQueryInArray(){
 		$tab = array();
 		while($row = $this->resQuery->fetch(PDO::FETCH_ASSOC)){
@@ -34,6 +35,18 @@ class Query{
 		// echo "<pre>";
 		// print_r($tab);
 		// echo "</pre>";
+		return $tab;
+	}
+
+	//Retourne le resultat de la requête resQuery sous forme de tableau 1D
+	function recoverSimpleArray($key, $param){
+		$tab = array();
+		while($row = $this->resQuery->fetch(PDO::FETCH_ASSOC)){
+			$tab["'". $key ."'"]= "'" . $row[$param] . "'";
+		}
+		echo "<pre>";
+		print_r($tab);
+		echo "</pre>";
 		return $tab;
 	}
 
