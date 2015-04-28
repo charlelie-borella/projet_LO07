@@ -1,8 +1,9 @@
 <?php
 
+
 function contenu() {
 
-$prnm = $_SESSION['membre']->getPrnm();
+$prnm = $_SESSION['membre']->getPrnom();
 
 $html=<<<html
 
@@ -18,11 +19,10 @@ $html=<<<html
 <h3>Bonjour
 
 html;
-  return $html;
 
 $prnm;
 
-$html=<<<html
+$html.=<<<html
 </h3>
 <p>
 <div class="thumbnail">
