@@ -2,6 +2,8 @@
 
 function contenu() {
 
+$prnm = $_SESSION['membre']->getPrnm();
+
 $html=<<<html
 
 <ul class="nav nav-tabs">
@@ -13,7 +15,13 @@ $html=<<<html
   <li role="presentation"><a href="#">Avis</a></li>
   <li role="presentation"><a href="#">Profil</a></li>
 </ul>
+<h3>Bonjour
 
+  $_SESSION['membre']->getPrnm(); 
+html; 
+
+$html=<<<html
+</h3>
 <p>
 <div class="thumbnail">
 <div class="media">
@@ -24,7 +32,7 @@ $html=<<<html
   </div>
   <div class="media-body">
     <h3 class="media-heading">Votre profil </h3>
-    Je suis XXXX, je suis étudiant en droit à l'université Assas à Paris.
+    <p>Je suis XXXX, je suis étudiant en droit à l'université Assas à Paris. J'utilise généralement ce site pour le trajet Paris-Nancy (ex)</p>
     
   </div>
 </div>
