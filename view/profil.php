@@ -1,15 +1,15 @@
 <?php
 
+//var_dump($_SESSION['membre']->getPrnom());
+require_once("../model/membre.php");
 
-function contenu() {
-
-$prnm = $_SESSION['membre']->getPrnom();
+function contenu($membre) {
 
 $html=<<<html
 
 <ul class="nav nav-tabs">
   <li role="presentation" class="active"><a href="#">Votre Profil</a></li>
-  <li role="presentation"><a href="#">Vos Annonces</a></li>
+  <li role="presentation"><a href="annonces.php">Vos Annonces</a></li>
   <li role="presentation"><a href="#">Vos réservations</a></li>
   <li role="presentation"><a href="#">Messages</a></li>
   <li role="presentation"><a href="#">Alertes</a></li>
@@ -20,7 +20,7 @@ $html=<<<html
 
 html;
 //tu dois ajouter à la variable html ;)
-$html.=$prnm;
+$html.=$membre->getPrnom();
 
 $html.=<<<html
 </h3>
@@ -78,7 +78,6 @@ $html.=<<<html
 
 <a href="#" class="btn btn-default" role="button">Modifier</a>
 <p>
-
 
 html;
 	return $html;

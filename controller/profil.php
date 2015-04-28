@@ -7,10 +7,13 @@ require_once("../view/foot.php");
 require_once("../model/membre.php");//Il faut inclure la classe pour accéder au membre
 
 session_start();
-      
+
 $html= headerSite("Votre profil");
 $html.= menu();
-$html.= contenu();
+if(isset($_SESSION['membre'])) {
+$membre = $_SESSION['membre'];
+$html.= contenu($membre);
+} else { $html.= "Vous devez vous connecter."; }
 $html.= foot();
 
 echo $html;
