@@ -3,8 +3,9 @@
 function formulaireCreationTrajet($action){
 
 	$html=<<<html
-	<H3 class="titre">Ajouter un trajet</H3>
+	
 	<div id="formulaireCreationTrajet">
+		<H3 class="titre">Ajouter un trajet</H3>
 
 		<form class="form-horizontal" action="$action" method="POST">
 

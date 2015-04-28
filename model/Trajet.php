@@ -1,5 +1,5 @@
 <?php
-class voyage {
+class trajet {
 	private $idTrajet;
     private $conducteurID;
 	private $dateAnnonce;
@@ -11,7 +11,7 @@ class voyage {
 
 
 function __construct($idTrajet, $conducteurID, $dateAnnonce, $dateTrajet, $villeDepart, $villeArrivee, $prix, $nbPlace) {
-        echo "<pre>$idTrajet, $conducteurID, $dateAnnonce, $dateTrajet, $villeDepart, $villeArrivee, $prix, $nbPlace</pre><br/>\n";
+        //echo "<pre>$idTrajet, $conducteurID, $dateAnnonce, $dateTrajet, $villeDepart, $villeArrivee, $prix, $nbPlace</pre><br/>\n";
         $this->setIdTrajet($conducteurID);
         $this->setConducteurID($conducteurID);
         $this->setDateAnnonce($dateAnnonce);
@@ -19,8 +19,7 @@ function __construct($idTrajet, $conducteurID, $dateAnnonce, $dateTrajet, $ville
         $this->setVilleDepart($villeDepart);
         $this->setVilleArrivee($villeArrivee);
         $this->setPrix($prix);
-        $this->setNbPlace($nbPlace);
-
+        $this->setNbPlace($nbPlace);       
     }
 
     function __toString() {
@@ -47,6 +46,10 @@ function __construct($idTrajet, $conducteurID, $dateAnnonce, $dateTrajet, $ville
         return $this->villeDepart;
     }
 
+    function getHeure(){        
+        return date_format($this->dateTrajet, 'H:i');
+    }
+
     function getVilleArrivee() {
         return $this->villeArrivee;
     }
@@ -71,8 +74,8 @@ function __construct($idTrajet, $conducteurID, $dateAnnonce, $dateTrajet, $ville
         $this->dateAnnonce = $dateAnnonce;
     }
 
-    function setDateTrajet($dateTrajet) {
-        $this->dateTrajet = $dateTrajet;
+    function setDateTrajet($dateTrajet) {    
+         $this->dateTrajet = new DateTime($dateTrajet);         
     }
 
     function setVilleDepart($villeDepart) {

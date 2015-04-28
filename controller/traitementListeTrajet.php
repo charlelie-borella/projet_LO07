@@ -1,6 +1,6 @@
 <?php
 
-require_once("../model/exec.php");
+require_once("../model/query.php");
 require_once("../model/membre.php");
 require_once("../model/voyage.php");
 require_once("../model/Trajet.php");
@@ -16,12 +16,21 @@ if(isset($_POST['villeDep']) && isset($_POST['villeAr']) && isset($_POST['date']
 	$villeAr = $_POST['villeAr'];
 	$date = $_POST['date'];
 
-	$exec = new Exec($myBase->getMyBase());
+	$query = new Query($myBase->getMyBase());
+	$myQuery = "SELECT * FROM trajet WHERE villeDepart='". $villeDep . "' AND villeArrivee='". $villeAr ."' AND " . "dateTrajet like '". $date . "%'" ;
+	$query->queryBD($myQuery);
+	// echo "<pre>";
+	// var_dump($query);
+	// echo "</pre>";
+	$res = $query->recoverQueryInArray();
 
-	$tab = array('trajet'=>array('conducteurID'=>$idMembre, 'dateTrajet'=>$result, 'villeDepart'=>$villeDep, 'villeArrivee'=>$villeAr, 'nbPlace'=>$nbPlace));
-	$query = $exec->createExecFromArray($tab);
+	$listeTrajet = array();
+	foreach ($res as $key => $value) {		
+		$listeTrajet[] = new trajet($res[$key]['idTrajet'], $res[$key]['conducteurID'],"", $res[$key]['dateTrajet'], $res[$key]['villeDepart'], $res[$key]['villeArrivee'], $res[$key]['prix'], $res[$key]['nbPlace']);
+	}		
 
-	$exec->execBD($query);
-	header('Location: index.php'); 
+	$_SESSION['listeTrajet'] = $listeTrajet;
+
+	header('Location: listeTrajet.php'); 
 
 }

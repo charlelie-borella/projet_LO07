@@ -9,15 +9,15 @@ $html=<<<html
           <form class="form-inline formulaireRecherche" action="$action" method="POST">
             <div class="form-group">
               <label class="sr-only" for="de">Ville de départ</label>
-              <input type="text" class="form-control" id="de" placeholder="Ville de départ">
+              <input type="text" name="villeDep" class="form-control" id="de" placeholder="Ville de départ">
             </div>
             <div class="form-group">
               <label class="sr-only" for="a">Ville d'arrivée</label>
-              <input type="text" class="form-control" id="a" placeholder="Ville d'arrivée">
+              <input type="text" name="villeAr" class="form-control" id="a" placeholder="Ville d'arrivée">
             </div>
             <div class="form-group">
               <label class="sr-only" for="a">Date</label>
-              <input type="date" class="form-control" id="date" placeholder="date">
+              <input type="date" name="date" class="form-control" id="date" placeholder="date">
             </div>
 
             <button type="submit" class="btn btn-default">Rechercher</button>

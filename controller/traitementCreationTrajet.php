@@ -14,6 +14,7 @@ if($_SESSION['membre'])
 	$jour = htmlspecialchars($_POST["jour"]);
 	$heure = htmlspecialchars($_POST["heure"]);
 	$nbPlace = htmlspecialchars($_POST["nbPlace"]);
+	$nbPlace = htmlspecialchars($_POST["prix"]);
 	$idMembre = $_SESSION["membre"]->getIdMembre();
 
 	$heure = $jour . " " . $heure;
@@ -24,7 +25,7 @@ if($_SESSION['membre'])
 
 	$exec = new Exec($myBase->getMyBase());
 
-	$tab = array('trajet'=>array('conducteurID'=>$idMembre, 'dateTrajet'=>$result, 'villeDepart'=>$villeDep, 'villeArrivee'=>$villeAr, 'nbPlace'=>$nbPlace));
+	$tab = array('trajet'=>array('conducteurID'=>$idMembre, 'dateTrajet'=>$result, 'villeDepart'=>$villeDep, 'villeArrivee'=>$villeAr, 'nbPlace'=>$nbPlace, 'prix'=>$prix));
 	$query = $exec->createExecFromArray($tab);
 
 	$exec->execBD($query);
