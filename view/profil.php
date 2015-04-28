@@ -19,8 +19,8 @@ $html=<<<html
 <h3>Bonjour
 
 html;
-
-$prnm;
+//tu dois ajouter à la variable html ;)
+$html.=$prnm;
 
 $html.=<<<html
 </h3>

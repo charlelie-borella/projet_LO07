@@ -1,6 +1,6 @@
 <?php
 
-function menu(){
+function menu($page=""){
 
 	$html=<<<html
 	<nav class="navbar navbar-default">
@@ -22,8 +22,17 @@ html;
       $html.=<<<html
          <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">              
-                <li><a href="creationTrajet.php">Proposer un trajet</a></li>
+            <ul class="nav navbar-nav">
+html;
+            if($page == "creationTrajet.php"){
+              $html.="<li><a href='index.php'>Rechercher un trajet</a></li>";
+              $html.="<li class='active'><a href='creationTrajet.php'>Proposer un trajet</a></li>";
+            }else{
+              $html.="<li class='active'><a href='index.php'>Rechercher un trajet</a></li>";
+              $html.="<li><a href='creationTrajet.php'>Proposer un trajet</a></li>";
+            }
+                
+      $html.=<<<html
               </ul>
               <ul class="nav navbar-nav">          
               </ul>

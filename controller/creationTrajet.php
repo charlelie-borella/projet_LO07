@@ -8,9 +8,10 @@ require_once("../view/creationTrajet.php");
 
 
 session_start();
-      
+$file = basename(__FILE__);
+
 $html= headerSite("création trajet");
-$html.= menu();
+$html.= menu($file);
 $html.= formulaireCreationTrajet("traitementCreationTrajet.php");
 $html.= foot();
 
