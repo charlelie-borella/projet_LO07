@@ -50,6 +50,10 @@ function __construct($idTrajet, $conducteurID, $dateAnnonce, $dateTrajet, $ville
         return date_format($this->dateTrajet, 'H:i');
     }
 
+    function getDate(){        
+        return date_format($this->dateTrajet, 'd/m/Y');
+    }
+
     function getVilleArrivee() {
         return $this->villeArrivee;
     }

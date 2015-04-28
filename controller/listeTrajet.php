@@ -11,11 +11,6 @@ require_once("../model/query.php");
 
 session_start();
       
-// $test = '14-02-2012 15:32:32';      
-// $date = new DateTime($test);
-// var_dump($date->format('H:i'));
-
-
 $html= headerSite("liste trajet");
 $html.= menu();
 
@@ -24,20 +19,20 @@ if(isset($_SESSION['listeTrajet'])){
 	$nbCovoiturage = count($_SESSION['listeTrajet']);
 	$villeDep = $_SESSION['listeTrajet'][0]->getVilleDepart();
 	$villeAr = $_SESSION['listeTrajet'][0]->getVilleArrivee();
-
-	$html.= deb($nbCovoiturage, $villeDep, $villeAr);
+	$date = $_SESSION['listeTrajet'][0]->getDate();
+	$html.= deb($date, $nbCovoiturage, $villeDep, $villeAr);
 
 	foreach ($_SESSION['listeTrajet'] as $key => $value) {
 
-		$heure = $value->getHeure();
-		$placePrise = $_SESSION['placeRestante'][$value->getidTrajet()];
-		$nbPlace = $placePrise . "/".$value->getNbPlace();		
-		$prix = $value->getPrix();
-		$idTrajet = $value->getIdTrajet();
-		$idPassager = $_SESSION['membre']->getIdMembre();
-		$bol = $placePrise < $value->getNbPlace();
+		$heure = $value->getHeure();//heure du trajet
+		$placePrise = $_SESSION['placeRestante'][$value->getidTrajet()];//Nombre de place déjà prise
+		$nbPlace = $placePrise . "/".$value->getNbPlace();//Affichage nombre de places prises / places totales
+		$prix = $value->getPrix();//prix
+		$idTrajet = $value->getIdTrajet();//Identifiant du trajet
+
+		$bol = $placePrise < $value->getNbPlace();//Récupère un boolean vrai s'il reste de la place
 	
-		$html.= trajet($bol, $heure, $nbPlace, $prix, $idTrajet, $idPassager);
+		$html.= trajet($bol, $heure, $nbPlace, $prix, $idTrajet);//Affichage de trajet
 	}
 
 }

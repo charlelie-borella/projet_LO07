@@ -1,10 +1,10 @@
 <?php 
 
-function deb($nbPlace, $villeDep, $villeAr){
+function deb($date, $nbPlace, $villeDep, $villeAr){
 	$html=<<<html
 	<div id="body">
 		<div id="listeTrajet">
-			<h3 class="titre">$nbPlace covoiturage de $villeDep à $villeAr</h3>
+			<h3 class="titre">$nbPlace covoiturage de $villeDep à $villeAr le $date</h3>
 			<div id="trajet">	
 				<table class="table">
 				<tr>
@@ -27,7 +27,7 @@ html;
 	return $html;
 }
 
-function trajet($active, $heure, $nbPlace, $prix, $idTrajet, $idPassager){
+function trajet($active, $heure, $nbPlace, $prix, $idTrajet){
 
 	$html=<<<html
 		<tr><td>$heure
