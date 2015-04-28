@@ -1,6 +1,5 @@
 <?php
 
-//var_dump($_SESSION['membre']->getPrnom());
 require_once("../model/membre.php");
 
 function contenu($membre) {
@@ -11,9 +10,9 @@ $html=<<<html
   <li role="presentation" class="active"><a href="#">Votre Profil</a></li>
   <li role="presentation"><a href="annonces.php">Vos Annonces</a></li>
   <li role="presentation"><a href="reservations.php">Vos réservations</a></li>
-  <li role="presentation"><a href="#">Messages</a></li>
-  <li role="presentation"><a href="#">Avis</a></li>
-  <li role="presentation"><a href="#">Profil</a></li>
+  <li role="presentation"><a href="messages.php">Messages</a></li>
+  <li role="presentation"><a href="avis.php">Avis</a></li>
+  <li role="presentation"><a href="modifprofil.php">Profil</a></li>
 </ul>
 <h3>Bonjour
 
@@ -38,7 +37,6 @@ $html.=<<<html
   </div>
 </div>
 </div>
-<a href="#" class="btn btn-default" role="button">Modifier votre description</a>
 </p>
 
 
@@ -56,8 +54,6 @@ $html.=<<<html
   </div>
 </div>
 </div>
-
-<a href="#" class="btn btn-default" role="button">Modifier vos préférences</a>
 <p>
 
 
@@ -75,7 +71,7 @@ $html.=<<<html
 </div>
 </div>
 
-<a href="#" class="btn btn-default" role="button">Modifier</a>
+<a href="modifprofil.php" class="btn btn-default" role="button">Modifier votre profil</a>
 <p>
 
 html;
