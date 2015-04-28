@@ -17,8 +17,10 @@ $html=<<<html
 </ul>
 <h3>Bonjour
 
-  $_SESSION['membre']->getPrnm(); 
-html; 
+html;
+  return $html;
+
+$prnm;
 
 $html=<<<html
 </h3>
