@@ -35,16 +35,21 @@ function trajet($active, $heure, $nbPlace, $prix, $idTrajet){
 			<td>$prix €			  	  
 			<td>
 html;
+	if(isset($_SESSION['membre'])){
+
 		if($active){
 			$html.=<<<html
 				<form action="reservationTraitement.php" method="POST">
 				<button type='submit' class='btn btn-default'>Réserver</button>
 				<input type="hidden" name="idTrajet" value="$idTrajet">				
-				</form>
+				</form>	
 html;
 		}
 		else{
 			$html.="<button type='submit' class='btn btn-default' disabled='disabled'>Complet</button>";
 		}
+	}else{
+		$html.="<a href='connexion.php' class='btn btn-danger' role='button'>Se connecter</a></p>";
+	}
 	return $html;
 }
