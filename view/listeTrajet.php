@@ -22,7 +22,7 @@ function fin(){
 				</table>
 			</div>
 		</div>
-	</div>	
+	</div>
 html;
 	return $html;
 }
