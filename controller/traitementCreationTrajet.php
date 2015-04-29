@@ -14,7 +14,7 @@ if($_SESSION['membre'])
 	$jour = htmlspecialchars($_POST["jour"]);
 	$heure = htmlspecialchars($_POST["heure"]);
 	$nbPlace = htmlspecialchars($_POST["nbPlace"]);
-	$nbPlace = htmlspecialchars($_POST["prix"]);
+	$prix = htmlspecialchars($_POST["prix"]);
 	$idMembre = $_SESSION["membre"]->getIdMembre();
 
 	$heure = $jour . " " . $heure;
