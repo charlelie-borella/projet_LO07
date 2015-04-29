@@ -29,10 +29,10 @@ if($_SESSION['membre'])
 	$query = $exec->createExecFromArray($tab);
 
 	$exec->execBD($query);
-	header('Location: index.php'); 
+	header('Location: messageAlerte.php?message=6');
 
 }else{
 
-	header('Location: index.php'); 
+	header('Location: messageAlerte.php?message=0'); 
 }
 

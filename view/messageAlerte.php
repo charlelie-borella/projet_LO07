@@ -2,7 +2,16 @@
 
 function contenu($message){
 	$html="";
-	if($message == 1){
+	if($message == 0){
+		$html.=<<<html
+			<div id="body">
+				<div class="alert alert-danger center_text" role="alert">
+				  	Erreur<br>
+				  <a href="index.php" class="alert-link">Retourner à l'accueil</a> 
+				</div>
+			</div>
+html;
+	else if($message == 1){
 		$html.=<<<html
 			<div id="body">
 				<div class="alert alert-danger center_text" role="alert">
@@ -49,6 +58,16 @@ html;
 			<div id="body">
 				<div class="alert alert-success center_text" role="alert">
 				 Réservation effectuée<br>
+				  <a href="index.php" class="alert-link">Accueil</a> 
+				</div>
+			</div>
+html;
+	}
+	else if($message == 6){		
+		$html.=<<<html
+			<div id="body">
+				<div class="alert alert-success center_text" role="alert">
+				 Trajet enregistré<br>
 				  <a href="index.php" class="alert-link">Accueil</a> 
 				</div>
 			</div>
