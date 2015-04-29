@@ -5,26 +5,30 @@ require_once("../view/menu.php");
 require_once("../model/voyage.php");
 require_once("../model/trajet.php");
 require_once("../view/annonces.php");
-require_once("../model/exec.php");
 require_once("../model/query.php");
 require_once("../view/foot.php");
+require_once("../model/membre.php"); 
 include("initBD.php");
-require_once("../model/membre.php"); //Il faut inclure la classe pour accéder au membre
+//Il faut inclure la classe pour accéder au membre
 
 session_start();
 
 $query = new Query($myBase->getMyBase());
-$myQuery = "SELECT `dateTrajet`, `villeDepart`, `villeArrivee`, `prix`, `nbPlace`, `conducteurID`, `idPassager`, `prnm`, `idMembre` FROM trajet, voyage, membre WHERE `dateTrajet` < CURRENT_TIMESTAMP AND `idPassager` = `idMembre` AND idPassager='". $idPassager . "' AND " . "dateTrajet like '". $date . "%' AND villeDepart='". $villeDep . "' AND villeArrivee='". $villeAr ."' AND prix='". $prix . "' AND nbPlace ='" . $nbPlace . "'";
+$myQuery = "SELECT * FROM trajet WHERE `dateTrajet` < CURRENT_TIMESTAMP AND conducteurID=" . $_SESSION['membre']->getIdMembre();
 $query->queryBD($myQuery);
-	echo "<pre>";
-	var_dump($query);
-	echo "</pre>";
+	// echo "<pre>";
+	// var_dump($query);
+	// echo "</pre>";
 $res = $query->recoverQueryInArray();
 
 	$listeAP = array();
 	foreach ($res as $key => $value) {		
-		$listeAP[] = new trajet($res[$key]['idPassager'], $res[$key]['date'], $res[$key]['villeDepart'], $res[$key]['villeArrivee'], $res[$key]['prix'], $res[$key]['nbPlace']);
-	}		
+		$listeAP[] = new trajet($res[$key]['idTrajet'], $res[$key]['conducteurID'],"", $res[$key]['dateTrajet'], $res[$key]['villeDepart'], $res[$key]['villeArrivee'], $res[$key]['prix'], $res[$key]['nbPlace']);
+	}
+
+	// echo "<pre>";
+	// var_dump($listeAP);
+	// echo "</pre>";	
 
 $html= headerSite("Vos annonces");
 $html.= menu();
@@ -57,17 +61,18 @@ foreach ($listAF as $key => $value) {
 $html.=Tpasses();
 //echo "<p><table class='table table-striped'>"
 foreach ($listeAP as $key => $value) {
-echo ("<tr>");
-		$idPassager = $value->getIdPassager();
-		$dateTrajet = $value->getDateTrajet();
-		$villeDep = $value->getVilleDepart();
-		$villeAr = $value->getVilleArrivee();
-		$prix = $value->getPrix();
-		$nbPlace = $value->getNbPlace();
-        echo("<th>$key</th>");
-        echo("<td>$value</td>");
+
+	$idPassager = $value->getConducteurID();
+	$dateTrajet = $value->getDate();
+	$villeDep = $value->getVilleDepart();
+	$villeAr = $value->getVilleArrivee();
+	$prix = $value->getPrix();
+	$nbPlace = $value->getNbPlace();
+
+	$html.= affichageTFuturs($idPassager, $dateTrajet, $villeDep, $villeAr, $prix, $nbPlace);		
+	
 	}
-echo("</tr>");
+
 	//$html.= fin();
 $html.= fin();
 $html.= foot();

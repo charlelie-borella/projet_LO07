@@ -4,23 +4,26 @@ function contenu($action){
 
 $html=<<<html
 	<div id="body">
+    <div id="resultat">
+    </div>
           <h3 class="titre">Rechercher un covoiturage</h3>
 
-          <form class="form-inline formulaireRecherche" action="$action" method="POST">
+          <form class="form-inline formulaireRecherche">
+
             <div class="form-group">
-              <label class="sr-only" for="de">Ville de départ</label>
-              <input type="text" name="villeDep" class="form-control" id="de" placeholder="Ville de départ">
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="a">Ville d'arrivée</label>
-              <input type="text" name="villeAr" class="form-control" id="a" placeholder="Ville d'arrivée">
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="a">Date</label>
+              <label class="sr-only" for="date">Date</label>
               <input type="date" name="date" class="form-control" id="date" placeholder="date">
             </div>
 
-            <button type="submit" class="btn btn-default">Rechercher</button>
+            <select disabled="disabled" name="villeDep" id="de" class="form-control">
+              <option>Ville de départ</option>  
+            </select>
+
+            <select disabled="disabled" name="villeAr" id="a" class="form-control">
+              <option>Ville d'arrivée</option>  
+            </select>            
+            
+            <button type="submit" id="bouton" class="btn btn-default">Rechercher</button>
           </form>      
         </div>
 html;

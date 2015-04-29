@@ -37,6 +37,18 @@ html;
   return $html;
 }
 
+
+function affichageTFuturs($idPassager, $dateTrajet, $villeDep, $villeAr, $prix, $nbPlace){
+  $html=<<<html
+    <tr><td>$idPassager
+        <td>$dateTrajet
+        <td>$villeDep
+        <td>$villeAr
+        <td>$prix
+        <td>$nbPlace
+html;
+  return $html;
+}
 //fonction pour les trajets déjà effectués où date > date trajet
 function Tpasses() {
   $html=<<<html
