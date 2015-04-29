@@ -11,7 +11,7 @@ function contenu($message){
 				</div>
 			</div>
 html;
-	else if($message == 1){
+	}else if($message == 1){
 		$html.=<<<html
 			<div id="body">
 				<div class="alert alert-danger center_text" role="alert">
