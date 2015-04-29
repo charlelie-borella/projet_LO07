@@ -1,8 +1,7 @@
 $(function() {
 
 	  //POST : Affichage une liste de ville de départ selon le jour sélectionné.
-	  $("#date").click(function(){
-
+	  $("#date").change(function(){
 	  		//On remet à zero les listes départ et arrivée
 	  		$("#villeDep option").remove();
 	    	$("#villeDep").append(new Option("Ville de départ",0));
