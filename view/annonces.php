@@ -18,8 +18,9 @@ html;
 
 
 //fonction pour les trajets pas encore effectués où date < date trajet
-function Tfuturs($idPassager, $dateTrajet, $villeDep, $villeAr, $prix, $nbPlace) {
-  $html=<<<html
+function Tfuturs() {
+
+$html=<<<html
 
 <p><table class="table table-striped">
 <ul class='list-group'>
@@ -37,7 +38,7 @@ html;
 }
 
 //fonction pour les trajets déjà effectués où date > date trajet
-function Tpasses($idPassager, $dateTrajet, $villeDep, $villeAr, $prix, $nbPlace) {
+function Tpasses() {
   $html=<<<html
 
 <p><table class="table table-striped">
