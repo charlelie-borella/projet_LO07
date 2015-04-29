@@ -32,7 +32,7 @@ $html.=<<<html
   </div>
   <div class="media-body">
     <h3 class="media-heading">Votre profil </h3>
-    <p>Je suis XXXX, je suis étudiant en droit à l'université Assas à Paris. J'utilise généralement ce site pour le trajet Paris-Nancy (ex)</p>
+    <p></p>
     
   </div>
 </div>

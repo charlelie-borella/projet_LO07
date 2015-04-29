@@ -26,43 +26,57 @@ $html=<<<html
 <ul class='list-group'>
 <li class='list-group-item list-group-item-info'>Trajets à venir</li>
       <tr>
-      <th>Liste passagers inscrits</th>
       <th>Date du trajet</th>
       <th>Ville de départ</th>
       <th>Ville d'arrivée</th>
       <th>prix</th>
       <th>Nombre de place</th>
+      <th>Passagers</th>
       </tr></p>
 html;
   return $html;
 }
 
 
-function affichageTFuturs($idPassager, $dateTrajet, $villeDep, $villeAr, $prix, $nbPlace){
+function affichageTFuturs($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace){
   $html=<<<html
-    <tr><td>$idPassager
+    <tr>
         <td>$dateTrajet
         <td>$villeDep
         <td>$villeAr
         <td>$prix
         <td>$nbPlace
+        <td><a href="annoncesPassagers.php" class="btn btn-primary" role="button">Voir liste passagers</a>
 html;
   return $html;
 }
+
+function affichageTPasses($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace){
+  $html=<<<html
+    <tr><td>$dateTrajet
+        <td>$villeDep
+        <td>$villeAr
+        <td>$prix
+        <td>$nbPlace
+        <td><a href="annoncesPassagers.php" class="btn btn-primary" role="button">Voir liste passagers</a>
+html;
+  return $html;
+}
+
 //fonction pour les trajets déjà effectués où date > date trajet
-function Tpasses() {
+function TPasses() {
   $html=<<<html
 
 <p><table class="table table-striped">
 <ul class='list-group'>
 <li class='list-group-item list-group-item-warning'>Trajets passés</li>
       <tr>
-      <th>Liste passagers inscrits</th>
       <th>Date du trajet</th>
       <th>Ville de départ</th>
-      <th>Ville d\'arrivée</th>
+      <th>Ville d'arrivée</th>
       <th>prix</th>
       <th>Nombre de place</th>
+      <th>Passagers</th>
       </tr></p>
 html;
   return $html;

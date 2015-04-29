@@ -3,8 +3,8 @@
 require_once("../view/header.php");
 require_once("../view/menu.php");
 require_once("../model/voyage.php");
-require_once("../model/trajet.php");
-require_once("../view/annonces.php");
+require_once("../model/Trajet.php");
+require_once("../view/annoncesPassagers.php");
 require_once("../model/query.php");
 require_once("../view/foot.php");
 require_once("../model/membre.php"); 
@@ -30,46 +30,11 @@ $res = $query->recoverQueryInArray();
 	// var_dump($listeAP);
 	// echo "</pre>";	
 
-$query = new Query($myBase->getMyBase());
-$myQuery1 = "SELECT * FROM trajet WHERE `dateTrajet` > CURRENT_TIMESTAMP AND conducteurID=" . $_SESSION['membre']->getIdMembre();
-$query->queryBD($myQuery1);
-	// echo "<pre>";
-	// var_dump($query);
-	// echo "</pre>";
-$res = $query->recoverQueryInArray();
 
-	$listeAF = array();
-	foreach ($res as $key => $value) {		
-		$listeAF[] = new trajet($res[$key]['idTrajet'], $res[$key]['conducteurID'],"", $res[$key]['dateTrajet'], $res[$key]['villeDepart'], $res[$key]['villeArrivee'], $res[$key]['prix'], $res[$key]['nbPlace']);
-	}
-
-
-$html= headerSite("Vos annonces");
+$html= headerSite("Les passagers inscrits à vos trajets");
 $html.= menu();
 $html.=nav();
 
-
-//Tableau avec voyages pas encore effectués
-
-// Il faudrait peut être mettre UNIQUEMENT les trajets dont date < date trajet 
-
-$html.=Tfuturs();
-foreach ($listeAF as $key => $value) {
-
-	$dateTrajet = $value->getDate();
-	$villeDep = $value->getVilleDepart();
-	$villeAr = $value->getVilleArrivee();
-	$prix = $value->getPrix();
-	$nbPlace = $value->getNbPlace();
-	
-	$html.= affichageTPasses($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace);	
-}
-$html.= fin();
-
-
-
-// Tableau avec les voyages déjà effectués
-// $idPassager, $dateTrajet, $villeDep, $villeAr, $prix, $nbPlace
 
 $html.=Tpasses();
 foreach ($listeAP as $key => $value) {
@@ -83,6 +48,8 @@ foreach ($listeAP as $key => $value) {
 	$html.= affichageTFuturs($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace);		
 	
 	}
+
+
 $html.= fin();
 $html.= foot();
 
