@@ -27,7 +27,8 @@ html;
 	return $html;
 }
 
-function trajet($active, $heure, $nbPlace, $prix, $idTrajet){
+//Active = est-ce qu'il y a encore de la place ou pas
+function trajet($active, $heure, $nbPlace, $prix, $idTrajet, $idConducteur){
 
 	$html=<<<html
 		<tr><td>$heure
@@ -37,19 +38,28 @@ function trajet($active, $heure, $nbPlace, $prix, $idTrajet){
 html;
 	if(isset($_SESSION['membre'])){
 
-		if($active){
+
+		if($_SESSION['membre']->getIdMembre() == $idConducteur )
+		{
 			$html.=<<<html
-				<form action="reservationTraitement.php" method="POST">
-				<button type='submit' class='btn btn-default'>Réserver</button>
-				<input type="hidden" name="idTrajet" value="$idTrajet">				
-				</form>	
+					<button disabled="disabled" type="button" class="btn btn-warning button-with-min">Votre trajet</button>
 html;
 		}
 		else{
-			$html.="<button type='submit' class='btn btn-default' disabled='disabled'>Complet</button>";
+			if($active){
+				$html.=<<<html
+					<form action="reservationTraitement.php" method="POST">
+					<button type='submit' class='btn btn-primary button-with-min'>Réserver</button>
+					<input type="hidden" name="idTrajet" value="$idTrajet">				
+					</form>	
+html;
+			}
+			else{
+				$html.="<button type='submit' class='btn btn-danger button-with-min' disabled='disabled'>Complet</button>";
+			}
 		}
 	}else{
-		$html.="<a href='connexion.php' class='btn btn-danger' role='button'>Se connecter</a></p>";
+		$html.="<a href='connexion.php' class='btn btn-danger button-with-min' role='button'>Se connecter</a></p>";
 	}
 	return $html;
 }

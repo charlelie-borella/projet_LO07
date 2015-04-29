@@ -1,18 +1,20 @@
 <?php
 
+require_once("../model/membre.php");
+require_once("../view/messageAlerte.php");
 require_once("../view/header.php");
 require_once("../view/menu.php");
 require_once("../view/foot.php");
-require_once("../view/erreur.php");
+
 session_start();
 
 $file = basename(__FILE__);     
 
-$erreur = $_GET["erreur"];
+$message = $_GET["message"];
 
-$html= headerSite("Erreur");
+$html= headerSite("Message");
 $html.= menu($file);
-$html.= contenu($erreur);
+$html.= contenu($message);
 $html.= foot();
 
 echo $html;

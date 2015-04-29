@@ -20,19 +20,19 @@ if(!isset($_SESSION['membre'])){
 		//var_dump($res);
 
 		if(count($res)==0){
-			header('Location: erreur.php?erreur=1'); 	
+			header('Location: messageAlerte.php?message=1'); 	
 		}else{
 			$membre = new membre($res[0]['idMembre'], $res[0]['nom'], $res[0]['prnm'], $res[0]['password'], $res[0]['adresse'], $res[0]['cp'], $res[0]['ville'], $res[0]['pays'], $res[0]['tel'], $res[0]['mail'], $res[0]['note'], $res[0]['photoProfil'], $res[0]['dateNais'], $res[0]['vehiculeID'], $res[0]['compteID']);
 
 			$_SESSION['membre'] = $membre;
 			//var_dump($_SESSION['membre']->getPhotoProfil());
 			//var_dump($_SESSION['membre']->getNom());	
-			header('Location: index.php'); 
+			header('Location: messageAlerte.php?message=2');
 		}
 
 		
 	}
 }
 else{
-	echo "test";
+	header('Location: messageAlerte.php?message=3');
 }

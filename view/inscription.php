@@ -3,29 +3,30 @@
 function formulaire($action){
 	
 $html=<<<html
-	<h3>Inscription</h3>
-	<div id="formulaire">
-		<form class="form-horizontal" action="$action" method="POST" enctype="multipart/form-data"> 
-		<div class="form-group">
-		    <label for="nom" class="col-sm-2 control-label">Nom</label>
-		    <div class="col-sm-10">
-		      <input type="text" name="nom" class="form-control" id="nom" placeholder="Nom">
-		    </div>
-		  </div>
+	<div id="body">
+		<h3 class="titre">Inscription</h3>
+		<div id="formulaire">
+			<form class="form-horizontal" action="$action" method="POST" enctype="multipart/form-data"> 
+			<div class="form-group">
+			    <label for="nom" class="col-sm-2 control-label">Nom</label>
+			    <div class="col-sm-10">
+			      <input type="text" name="nom" class="form-control" id="nom" placeholder="Nom">
+			    </div>
+			  </div>
 
-		  <div class="form-group">
-		    <label for="prnm" class="col-sm-2 control-label">Prénom</label>
-		    <div class="col-sm-10">
-		      <input type="text" name="prnm" class="form-control" id="prnm" placeholder="Prénom">
-		    </div>
-		  </div>
+			  <div class="form-group">
+			    <label for="prnm" class="col-sm-2 control-label">Prénom</label>
+			    <div class="col-sm-10">
+			      <input type="text" name="prnm" class="form-control" id="prnm" placeholder="Prénom">
+			    </div>
+			  </div>
 
-		  <div class="form-group">  
-		  <label class="col-sm-2 control-label">Date de naissance</label>
-		  <table>
-		  <tr><td><label for="jour" class="col-sm-2 control-label">Jour</label>
-		  <td><select name="jour" id="jour" class="form-control">
-		  <option value="-">-</option>
+			  <div class="form-group">  
+			  <label class="col-sm-2 control-label">Date de naissance</label>
+			  <table>
+			  <tr><td><label for="jour" class="col-sm-2 control-label">Jour</label>
+			  <td><select name="jour" id="jour" class="form-control">
+			  <option value="-">-</option>
 html;
 			for ($i=1; $i <= 31 ; $i++) { 
 				$html.= "<option value='$i'>$i</option>";
@@ -90,6 +91,7 @@ html;
 		  </div>
 		</form>
 	</div>
+</div>
 html;
 
 return $html;

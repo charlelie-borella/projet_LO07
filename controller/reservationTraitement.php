@@ -18,9 +18,9 @@ if($_SESSION['membre'])
 	$tab = array('voyage'=>array('idPassager'=>$idMembre, 'idTrajet'=>$idTrajet));
 	$query = $exec->createExecFromArray($tab);
 	$exec->execBD($query);
-	header('Location: index.php'); 
+	header('Location: messageAlerte.php?message=5');
 
 }else{
 
-	header('Location: index.php'); 
+	header('Location: messageAlerte.php?message=1');
 }

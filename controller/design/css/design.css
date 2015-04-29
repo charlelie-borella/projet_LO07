@@ -21,7 +21,7 @@
 
 .formulaireRecherche{
 	margin-top: 100px;
-	margin-left: 240px;
+	margin-left: 220px;
 }
 
 #formulaire{
@@ -47,4 +47,21 @@
 
 .center_text{
  text-align: center;
+}
+
+.button-with-min{
+	width: 100px;
+}
+
+.champ-form-recherche{
+	min-width:180px;
+	height:40px;
+	font-size: 16px;
+}
+
+.formulaire-button-recherche{
+
+	width: 150px;
+	margin-top: 80px;
+	margin-left: 200px;
 }
