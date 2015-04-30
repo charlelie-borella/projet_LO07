@@ -46,8 +46,9 @@ if($_SESSION['admin']){
 		$prnm = $value->getPrnom();
 		$mail = $value->getMail();
 		$tel = $value->getTel();
+		$date = $value->getDateNais();
 		
-		$html.=affichageListeCompte($photo, $nom, $prnm, $mail, $tel);
+		$html.=affichageListeCompte($photo, $nom, $prnm, $date, $mail, $tel);
 	}
 
 	

@@ -11,6 +11,7 @@ function deb(){
 				    <th>Photo</th>
 				    <th>Nom</th> 
 				    <th>Prénom</th>
+				    <th>Date de naissance</th>
 				    <th>Mail</th>
 				    <th>téléphone</th>
 				</tr>
@@ -29,7 +30,7 @@ html;
 }
 
 
-function affichageListeCompte($photo, $nom, $prnm, $mail, $tel){
+function affichageListeCompte($photo, $nom, $prnm, $date, $mail, $tel){
 
 	$html="";
 
@@ -43,7 +44,8 @@ function affichageListeCompte($photo, $nom, $prnm, $mail, $tel){
 	$html.=<<<html
 		
 			<td>$nom
-			<td>$prnm 			  	  
+			<td>$prnm 
+			<td>$date			  	  
 			<td>$mail
 			<td>$tel
 html;

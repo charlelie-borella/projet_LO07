@@ -91,7 +91,7 @@ function __construct($idMembre=0, $nom="", $prnom="", $password="", $adresse="",
     }
 
     function getDateNais() {
-        return $this->dateNais;
+        return date_format($this->dateNais, 'd/m/Y');
     }
 
     function getVehiculeID() {
@@ -151,7 +151,7 @@ function __construct($idMembre=0, $nom="", $prnom="", $password="", $adresse="",
     }
 
     function setDateNais($dateNais) {
-        $this->dateNais = $dateNais;
+         $this->dateNais = new DateTime($dateNais);     
     }
 
     function setVehiculeID($vehiculeID) {
