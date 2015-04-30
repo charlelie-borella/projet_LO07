@@ -28,13 +28,11 @@ class Query{
 
 	//Retourne le resultat de la requête resQuery sous forme de tableau 2D
 	function recoverQueryInArray(){
-		$tab = array();
+		$tab = array();	
 		while($row = $this->resQuery->fetch(PDO::FETCH_ASSOC)){
 			$tab[]=$row;
 		}
-		// echo "<pre>";
-		// print_r($tab);
-		// echo "</pre>";
+
 		return $tab;
 	}
 
@@ -44,9 +42,7 @@ class Query{
 		while($row = $this->resQuery->fetch(PDO::FETCH_ASSOC)){
 			$tab["'". $key ."'"]= "'" . $row[$param] . "'";
 		}
-		echo "<pre>";
-		print_r($tab);
-		echo "</pre>";
+		
 		return $tab;
 	}
 

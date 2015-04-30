@@ -4,7 +4,7 @@ class compte {
 	private $solde;
 	
 function __construct($idCompte, $solde) {
-        echo "<pre>$idCompte, $solde</pre><br/>\n";
+        //echo "<pre>$idCompte, $solde</pre><br/>\n";
         $this->setIdCompte($idCompte);
         $this->setSolde($solde);
     }
