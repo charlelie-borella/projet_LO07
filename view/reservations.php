@@ -44,7 +44,7 @@ function affichageRP($Prnom, $idConducteur, $date, $villeDep, $villeAr){
         <td>$date
         <td>$villeDep
         <td>$villeAr
-        <td><a href="annoncesPassagers.php" class="btn btn-primary" role="button">Voir liste passagers</a>
+        <td><a href="annoncesPassagers.php" class="btn btn-primary" role="button">Donner une note au conducteur</a>
 html;
   return $html;
 }
@@ -74,7 +74,7 @@ function affichageRF($Prnom, $idConducteur, $date, $villeDep, $villeAr){
         <td>$date
         <td>$villeDep
         <td>$villeAr
-        <td><a href="annoncesPassagers.php" class="btn btn-primary" role="button">Voir liste passagers</a>
+        <td><a href="annoncesPassagers.php" class="btn btn-primary" role="button">Donner une note au conducteur</a>
 html;
   return $html;
 }

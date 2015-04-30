@@ -21,7 +21,7 @@ $html.= menu($file);
 $html.=nav();
 
 $query = new Query($myBase->getMyBase());
-$myQuery = ("UPDATE membre SET descriptif WHERE " . $idMembre = $_SESSION['membre'] . "");
+$myQuery = ("UPDATE membre SET descriptif WHERE " . $idMembre = $_SESSION['membre']);
 $query->queryBD($myQuery);
 	echo "<pre>";
 	var_dump($query);

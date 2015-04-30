@@ -15,8 +15,9 @@ $html=<<<html
 html;
   return $html;
 }
+
 function contenu (){
-<<<html
+$html=<<<html
 
 <textarea class="form-control" rows="3"></textarea>
 
