@@ -1,7 +1,11 @@
 <?php
-
+//Page qui permet de modifier son profil.
+//Model requis : 
 require_once("../model/membre.php");
 
+// _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+//
+//fonction pour le navigateur avec la page modifprofil.php 'active'
 function nav() {
 $html=<<<html
 <ul class="nav nav-tabs">
@@ -16,6 +20,7 @@ html;
   return $html;
 }
 
+//Zone où l'utilisateur doit se décire : 
 function contenu (){
 $html=<<<html
 

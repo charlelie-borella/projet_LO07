@@ -1,5 +1,8 @@
 <?php
-
+//Inscription au site => insertion dans la base de données. 
+// Eléments à rentrer dans le formulaire : 
+// Nom, prénom, date de naissance, photo, e-mail, mot de passe avec vérification du mot de passe.
+// La photo n'est pas obligatoire.
 function formulaire($action){
 	
 $html=<<<html

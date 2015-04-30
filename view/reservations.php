@@ -3,9 +3,7 @@
 require_once("../model/membre.php");
 
 function nav() {
-
-$html=<<<html
-
+  $html=<<<html
 <ul class="nav nav-tabs">
   <li role="presentation"><a href="profil.php">Votre Profil</a></li>
   <li role="presentation"><a href="annonces.php">Vos Annonces</a></li>
@@ -14,45 +12,14 @@ $html=<<<html
   <li role="presentation"><a href="avis.php">Avis</a></li>
   <li role="presentation"><a href="modifprofil.php">Profil</a></li>
 </ul>
-
-html;
-  return $html;
-}
-/*$html.=<<<html
-<p>
-<ul class="list-group">
-  <li class="list-group-item list-group-item-info">Historique des trajets réservés</li>
-
-<table class="table table-striped">
-  <th><td>Nom du conducteur</td><td>Date</td><td>Ville de Départ</td><td>Ville d'arrivée</td><td>prix</td></th>
-  <tr><td>Num</td><td>NomConudcteur</td><td>24/07/2013</td><td>Paris</td><td>Lyon</td><td>prix</td></tr>
-  <tr><td>Num</td><td>NomConudcteur</td><td>24/07/2013</td><td>Nancy</td><td>Troyes</td><td>prix</td></tr>
-  <tr><td>Num</td><td>NomConudcteur</td><td>24/07/2013</td><td>Lourdes</td><td>Marseille</td><td>prix</td></tr>
-</table>
-</p>
-</ul>
-html;
-	return $html;
-}
-?>
-*/
-
-function affichageRP($Prnom, $idConducteur, $date, $villeDep, $villeAr){
-  $html=<<<html
-    <tr><td>$Prnom
-        <td>$idConducteur
-        <td>$date
-        <td>$villeDep
-        <td>$villeAr
-        <td><a href="annoncesPassagers.php" class="btn btn-primary" role="button">Donner une note au conducteur</a>
 html;
   return $html;
 }
 
+// _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 //fonction pour les trajets déjà effectués où date > date trajet
-function RP() {
+function ResPassees() {
   $html=<<<html
-
 <p><table class="table table-striped">
 <ul class='list-group'>
 <li class='list-group-item list-group-item-info'>Trajets réservés réalisés</li>
@@ -67,7 +34,11 @@ html;
   return $html;
 }
 
-function affichageRF($Prnom, $idConducteur, $date, $villeDep, $villeAr){
+
+// _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+//Affichage du tableau des reservations passées
+
+function affichageRP($Prnom, $idConducteur, $date, $villeDep, $villeAr){
   $html=<<<html
     <tr><td>$Prnom
         <td>$idConducteur
@@ -79,8 +50,9 @@ html;
   return $html;
 }
 
+// _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 //fonction pour les trajets déjà effectués où date > date trajet
-function RF() {
+function ResFutures() {
   $html=<<<html
 
 <p><table class="table table-striped">
@@ -96,6 +68,25 @@ function RF() {
 html;
   return $html;
 }
+
+// _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+//Affichage du tableau des reservations futures
+function affichageRF($Prnom, $idConducteur, $date, $villeDep, $villeAr){
+  $html=<<<html
+    <tr><td>$Prnom
+        <td>$idConducteur
+        <td>$date
+        <td>$villeDep
+        <td>$villeAr
+        <td><a href="annoncesPassagers.php" class="btn btn-primary" role="button">Donner une note au conducteur</a>
+html;
+  return $html;
+}
+
+
+
+// _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+//Function qui permet de fermer les tableaux ResPassees() et ResFutures()
 function fin(){
   $html=<<<html
       </table>

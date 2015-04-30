@@ -1,8 +1,14 @@
 <?php
+//Cette page permet de voir l'ensemble des passagers qui ont participé au trajet sélectionné sur la page annonces.php
+//Ici l'utilisateur est le conducteur.
+
+//Models requis : 
 require_once("../model/membre.php");
 require_once("../model/Trajet.php");
 
-//fonction pour le navigateur
+// _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+//
+//fonction pour le navigateur avec la page annonces.php 'active'
 function nav() {
 $html=<<<html
 <ul class="nav nav-tabs">
@@ -17,8 +23,10 @@ html;
   return $html;
 }
 
-
-//fonction pour les trajets déjà effectués où date > date trajet
+// _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+//
+//Fonction pour les trajets déjà effectués (date > date trajet).
+//Fonction qui affiche l'entête du tableau seulement.
 function TPasses($date) {
   $html=<<<html
 
@@ -43,8 +51,9 @@ html;
   return $html;
 }
 
-
-
+// _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+//
+//Fonction qui permet l'affichage des trajets passés (date > date trajet)
 function affichageTPasses($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace){
   $html=<<<html
     <tr><td>$dateTrajet

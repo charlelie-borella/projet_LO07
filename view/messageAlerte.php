@@ -1,5 +1,5 @@
 <?php 
-
+//Messages d'alertes au cas où il y ait une erreur sur le site.
 function contenu($message){
 	$html="";
 	if($message == 0){
@@ -11,6 +11,7 @@ function contenu($message){
 				</div>
 			</div>
 html;
+//Si l'utilisateur rentre mal son identifiant et/ou son mdp : 
 	}else if($message == 1){
 		$html.=<<<html
 			<div id="body">
@@ -20,6 +21,7 @@ html;
 				</div>
 			</div>
 html;
+//SI l'utilsateur se connecte sur le site :  
 	}else if($message == 2){	
 		$html.=<<<html
 			<div id="body">
@@ -30,7 +32,7 @@ html;
 			</div>
 html;
 	}
-
+//SI l'utilisateur rentre mal son identifiant et/ou son mdp : 
 	else if($message == 3){		
 		$html.=<<<html
 			<div id="body">
@@ -41,7 +43,7 @@ html;
 			</div>
 html;
 	}
-
+// SI l'utilisateur se déconnecte du site : 
 		else if($message == 4){		
 		$html.=<<<html
 			<div id="body">
@@ -52,7 +54,7 @@ html;
 			</div>
 html;
 	}
-
+//SI l'utilisateur fait une reservation sur le site (redirection vers l'acceuil)
 		else if($message == 5){		
 		$html.=<<<html
 			<div id="body">
@@ -63,6 +65,7 @@ html;
 			</div>
 html;
 	}
+//SI l'utilisateur ajoute un trajet où il est le conducteur : 
 	else if($message == 6){		
 		$html.=<<<html
 			<div id="body">

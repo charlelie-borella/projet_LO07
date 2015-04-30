@@ -1,5 +1,5 @@
 <?php
-
+//Formulaire de connexion
 function formulaireConnexion($action){
   $html=<<<html
   <div id="body">

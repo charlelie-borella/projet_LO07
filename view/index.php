@@ -1,5 +1,5 @@
 <?php
-
+//Page qui permet d'accéder au formulaire de recherche d'un covoiturage.
 function contenu($action){
 
 $html=<<<html

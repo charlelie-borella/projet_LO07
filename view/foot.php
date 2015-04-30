@@ -1,5 +1,5 @@
 <?php
-
+//Foot => identique & inclu à toutes les pages 
 function foot(){
 
 	$html=<<<html
