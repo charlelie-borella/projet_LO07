@@ -1,14 +1,17 @@
 <?php
-
+//Inchangés dans les pages :
 require_once("../view/header.php");
 require_once("../view/menu.php");
+require_once("../view/foot.php");
+// Models requis :
 require_once("../model/voyage.php");
 require_once("../model/trajet.php");
-require_once("../view/avis.php");
 require_once("../model/exec.php");
 require_once("../model/query.php");
-require_once("../view/foot.php");
 require_once("../model/membre.php"); //Il faut inclure la classe pour accéder au membre
+//Page view correspondante : 
+require_once("../view/avis.php");
+
 
 session_start();
 
@@ -17,7 +20,7 @@ $html.= menu();
 $html.=nav();
 
 
-// Avis reçus
+// Tableau avec les avis reçus
 
 
 $html.=AvisR($idCommentaire, $satisfaction, $commentaire, $conduite, $date);
@@ -39,12 +42,10 @@ foreach ($_SESSION['avis'] as $key => $value) {
 	$date = $_SESSION['avis'][0]->getDate();
 
 	}
-
-	//$html.= fin();
 }
 
 
-// Avis laissés
+// Tableau avec les avis laissés
 
 
 	$html.=AvisL($idCommentaire, $satisfaction, $commentaire, $conduite, $date);
@@ -64,8 +65,6 @@ foreach ($_SESSION['avis'] as $key => $value) {
 	$conduite = $_SESSION['avis'][0]->getNoteConduite();
 	$date = $_SESSION['avis'][0]->getDate();
 	}
-
-	//$html.= fin();
 }
 $html.= fin();
 $html.= foot();

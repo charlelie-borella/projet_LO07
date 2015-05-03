@@ -2,8 +2,13 @@
 
 require_once("../model/membre.php");
 
-function contenu($membre) {
 
+// _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+// Profil de l'utilsateur. 
+// Divisé en trois phases : d'abord le descriptif de l'utilisateur, ensuite ses préférences en voiture, ensuite son type de véhicule.
+
+function contenu($membre) {
+//Ici équivalent de la fonction nav avec page "Votre Profil" active
 $html=<<<html
 
 <ul class="nav nav-tabs">
@@ -17,7 +22,8 @@ $html=<<<html
 <h3>Bonjour
 
 html;
-//tu dois ajouter à la variable html ;)
+
+//Variable hmtl qui récupère le prénom de l'utilisateur.
 $html.=$membre->getPrnom();
 
 $html.=<<<html
@@ -55,7 +61,6 @@ $html.=<<<html
 </div>
 </div>
 <p>
-
 
 <p>
 <div class="thumbnail">

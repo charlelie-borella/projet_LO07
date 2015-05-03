@@ -1,5 +1,6 @@
 <?php
-
+//Page commune à l'ensemble des pages du site.
+//Fonction menu() avec la barre de navigation qui flote en haut.
 function menu($page=""){
 
 	$html=<<<html
@@ -17,7 +18,7 @@ function menu($page=""){
               </div>
             
 html;
-
+//Si l'utilisateur est membre + connecté ALORS : 
   if(isset($_SESSION['membre'])){
       $html.=<<<html
          <!-- Collect the nav links, forms, and other content for toggling -->

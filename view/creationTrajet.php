@@ -1,5 +1,6 @@
 <?php
-
+//Formulaire pour "Ajouter un trajet" : 
+// Ville de départ, ville d'arrivée, le nbre de places, l'heure et la date, le prix. 
 function formulaireCreationTrajet($action){
 
 	$html=<<<html
