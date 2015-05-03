@@ -6,22 +6,23 @@ $html=<<<html
 	<div id="body">
 		<h3 class="titre">Inscription</h3>
 		<div id="formulaire">
-			<form class="form-horizontal" action="$action" method="POST" enctype="multipart/form-data"> 
-			<div class="form-group">
+			<form id="formulaireInscription" class="form-horizontal" action="$action" method="POST" enctype="multipart/form-data"> 
+			
+			<div id="formNom" class="form-group">
 			    <label for="nom" class="col-sm-2 control-label">Nom</label>
 			    <div class="col-sm-10">
-			      <input type="text" name="nom" class="form-control" id="nom" placeholder="Nom">
+			      <input type="text" name="nom" class="form-control" id="nom" value="" placeholder="Nom">			     
 			    </div>
-			  </div>
+			  </div>		
 
-			  <div class="form-group">
+			  <div id="formPrnm" class="form-group">
 			    <label for="prnm" class="col-sm-2 control-label">Prénom</label>
 			    <div class="col-sm-10">
 			      <input type="text" name="prnm" class="form-control" id="prnm" placeholder="Prénom">
 			    </div>
 			  </div>
 
-			  <div class="form-group">  
+			  <div id="formDate" class="form-group">  
 			  <label class="col-sm-2 control-label">Date de naissance</label>
 			  <table>
 			  <tr><td><label for="jour" class="col-sm-2 control-label">Jour</label>
@@ -56,28 +57,35 @@ html;
 			</table>
 		  </div>
 
-		  <div class="form-group">
-		    <label for="inputEmail3" class="col-sm-2 control-label">Photo</label>
+		  <div id="formPhoto" class="form-group">
+		    <label for="photo" class="col-sm-2 control-label">Photo</label>
 		    <div class="col-sm-10">
-		       <input type="file" name="photo" id="inputEmail3">
+		       <input type="file" name="photo" id="photo">
 		    </div>
 		  </div>
 
-		  <div class="form-group">
-		    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+		  <div id="formMail" class="form-group">
+		    <label for="mail" class="col-sm-2 control-label">Email</label>
 		    <div class="col-sm-10">
-		      <input type="email" name="mail" class="form-control" id="inputEmail3" placeholder="Email">
+		      <input type="email" name="mail" class="form-control" id="mail" placeholder="Email">
 		    </div>
 		  </div>
 
-		  <div class="form-group">
+		  <div id="formTel" class="form-group">
+		    <label for="tel" class="col-sm-2 control-label">Téléphone</label>
+		    <div class="col-sm-10">
+		      <input type="tel" name="tel" class="form-control" id="tel" placeholder="Ex : 06..">
+		    </div>
+		  </div>
+
+		  <div id="formNomPass1" class="form-group">
 		    <label for="inputPassword1" class="col-sm-2 control-label">Mot de passe</label>
 		    <div class="col-sm-10">
 		      <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Mot de passe">
 		    </div>
 		  </div>
 
-		   <div class="form-group">
+		   <div id="formPass2" class="form-group">
 		    <label for="inputPassword2" class="col-sm-2 control-label">Confirmation</label>
 		    <div class="col-sm-10">
 		      <input type="password" class="form-control" id="inputPassword2" placeholder="Confirmation mot de passe">
@@ -86,7 +94,7 @@ html;
 
 		  <div class="form-group">
 		    <div class="col-sm-offset-2 col-sm-10">
-		      <button type="submit" class="btn btn-default">S'inscrire</button>
+		      <button type="submit" verifForm() class="btn btn-default">S'inscrire</button>
 		    </div>
 		  </div>
 		</form>

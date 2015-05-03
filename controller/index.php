@@ -12,8 +12,7 @@ $file = basename(__FILE__);
 $html= headerSite("index");
 $html.= menu($file);
 $html.= contenu("traitementListeTrajet.php");
-$html.= "<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>";
-$html.= "<script type='text/javascript' src='design/js/rechercheTrajet.js'></script>";
+$html.= "<script type='text/javascript' src='content/js/rechercheTrajet.js'></script>";
 $html.= foot();
 
 echo $html;

@@ -9,6 +9,7 @@ if(!isset($_SESSION['membre'])){
 	if(	isset($_POST["nom"]) && !empty($_POST["nom"]) &&
 		isset($_POST["prnm"]) && !empty($_POST["prnm"]) &&
 		isset($_POST["mail"]) && !empty($_POST["mail"])  &&
+		isset($_POST["tel"]) && !empty($_POST["tel"])  &&
 		isset($_POST["password"]) && !empty($_POST["password"]) &&
 		isset($_POST["jour"]) && !empty($_POST["jour"]) &&
 		isset($_POST["mois"]) && !empty($_POST["mois"]) &&
@@ -16,6 +17,7 @@ if(!isset($_SESSION['membre'])){
 
 		$password = md5($_POST["password"]);
 		$nom = htmlspecialchars($_POST["nom"]);
+		$tel = htmlspecialchars($_POST["tel"]);
 		$mail = htmlspecialchars($_POST["mail"]);
 		$prnm = htmlspecialchars($_POST["prnm"]);
 		$photo = "";
@@ -49,11 +51,18 @@ if(!isset($_SESSION['membre'])){
 
 		$exec = new Exec($myBase->getMyBase());
 
-		$tab = array('membre'=>array('nom'=>$nom, 'prnm'=>$prnm, 'mail'=>$mail, 'photoProfil'=>$photo, 'password'=>$password));
+		$tab = array('membre'=>array('nom'=>$nom, 'prnm'=>$prnm, 'mail'=>$mail, 'tel'=>$tel, 'photoProfil'=>$photo, 'password'=>$password));
 		$query = $exec->createExecFromArray($tab);
 
-		$exec->execBD($query);	
+		$exec->execBD($query);
+		header('Location: messageAlerte.php?message=10');
 	}
+	else{
+	header('Location: messageAlerte.php?message=0');
+}
+}
+else{
+	header('Location: messageAlerte.php?message=3');
 }
 
-header('Location: index.php'); 
+

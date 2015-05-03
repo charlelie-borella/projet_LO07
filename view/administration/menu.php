@@ -41,7 +41,7 @@ html;
               </ul>
 
               <ul class="nav navbar-nav navbar-right">
-              <li><a href='deconnexionAdministration.php'>Se déconnecter</a></li>
+              <li><a href='deconnexion.php'>Se déconnecter</a></li>
 html;
           $html.=<<<html
                </ul>              
