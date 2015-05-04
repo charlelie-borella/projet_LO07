@@ -17,7 +17,7 @@ class membre {
     private $compteID; 
 
 
-function __construct($idMembre=0, $nom="", $prnom="", $password="", $adresse="", $cp="", $ville="", $pays="", $tel="", $mail="", $note=0, $photoProfil="", $dateNais="", $vehiculeID="", $compteID="") {
+function __construct($idMembre=0, $nom="", $prnom="", $password="", $adresse="", $cp="", $ville="", $pays="", $tel="", $mail="", $note=0, $photoProfil="", $dateNais="", $vehiculeID="", $compteID=0) {
         //echo "<pre>$idMembre, $nom, $prnom, $password, $adresse, $cp, $ville, $pays, $tel, $mail, $note, $photoProfil, $dateNais, $vehiculeID, $compteID</pre><br/>\n";
         $this->setIdMembre($idMembre);
         $this->setNom($nom);

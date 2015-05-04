@@ -45,11 +45,16 @@ if(isset($_SESSION['membre'])) {
 //echo "<pre>";
 //var_dump($res);
 //echo "</pre>";
+	if($res != null){
+		$modele= $res[0]["modele"];
+		$marque= $res[0]["marque"];
+		$annee= date_format(new DateTime($res[0]["dateService"]), 'd/m/Y');
+		$html.=vehicule($modele, $marque, $annee);
+	}else{
+		$html.=vehicule($modele="", $marque="", $annee="");
+	}
 	
-	$modele= $res[0]["modele"];
-	$marque= $res[0]["marque"];
-	$annee= date_format(new DateTime($res[0]["dateService"]), 'd/m/Y');;
-	$html.=vehicule($modele, $marque, $annee);
+	
 
 
 } 

@@ -47,11 +47,15 @@ if(!isset($_SESSION['membre'])){
 			}
 		}
 
+		$exec = new Exec($myBase->getMyBase());
+		$tab = array('compte'=>array('solde'=>0));
+		$query = $exec->createExecFromArray($tab);
+		$exec->execBD($query);
 		
 
 		$exec = new Exec($myBase->getMyBase());
 
-		$tab = array('membre'=>array('nom'=>$nom, 'prnm'=>$prnm, 'mail'=>$mail, 'tel'=>$tel, 'photoProfil'=>$photo, 'password'=>$password));
+		$tab = array('membre'=>array('nom'=>$nom, 'prnm'=>$prnm, 'mail'=>$mail, 'tel'=>$tel, 'photoProfil'=>$photo, 'password'=>$password, 'compteID'=>$myBase->getMyBase()->lastInsertId()));
 		$query = $exec->createExecFromArray($tab);
 
 		$exec->execBD($query);

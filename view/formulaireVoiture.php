@@ -19,7 +19,14 @@ function formulaireVoiture($action){
 			  <div class="form-group">
 			    <label for="modele" class="col-sm-2 control-label">Modèle</label>
 			    <div class="col-sm-10">
-			      <input type="text" name="modele" class="form-control" id="modele" placeholder="Ex: Rouge">
+			      <input type="text" name="modele" class="form-control" id="modele" placeholder="Ex: 206">
+			    </div>
+			  </div>
+
+			  <div class="form-group">
+			    <label for="couleur" class="col-sm-2 control-label">Couleur</label>
+			    <div class="col-sm-10">
+			      <input type="text" name="couleur" class="form-control" id="couleur" placeholder="Ex: rouge">
 			    </div>
 			  </div>
 

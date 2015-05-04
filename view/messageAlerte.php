@@ -149,6 +149,16 @@ html;
 			</div>
 html;
 	}
+	else if($message == 11){		
+		$html.=<<<html
+			<div id="body">
+				<div class="alert alert-success center_text" role="alert">
+				 Votre trajet a bien été supprimé.<br>
+				  <a href="profil.php" class="alert-link">Retourner au profil</a> 
+				</div>
+			</div>
+html;
+	}
 
 	return $html;
 }

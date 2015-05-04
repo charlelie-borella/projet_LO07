@@ -55,7 +55,7 @@ $html.=nav();
 
 // Il faudrait peut être mettre UNIQUEMENT les trajets dont date < date trajet 
 
-$html.=Tfuturs();
+$html.=affichageTH();
 foreach ($listeAF as $key => $value) {
 
 	$dateTrajet = $value->getDate();
@@ -65,7 +65,7 @@ foreach ($listeAF as $key => $value) {
 	$nbPlace = $value->getNbPlace();
 	$idTrajet = $value->getIdTrajet();
 	
-	$html.= affichageTFuturs($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace, $idTrajet);	
+	$html.= affichageTD($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace, $idTrajet);	
 }
 $html.= fin();
 
@@ -74,7 +74,7 @@ $html.= fin();
 // Tableau avec les voyages déjà effectués
 // $idPassager, $dateTrajet, $villeDep, $villeAr, $prix, $nbPlace
 
-$html.=Tpasses();
+$html.=affichageTH();
 foreach ($listeAP as $key => $value) {
 
 	$dateTrajet = $value->getDate();
@@ -82,8 +82,9 @@ foreach ($listeAP as $key => $value) {
 	$villeAr = $value->getVilleArrivee();
 	$prix = $value->getPrix();
 	$nbPlace = $value->getNbPlace();
+	$idTrajet = $value->getIdTrajet();
 
-	$html.= affichageTpasses($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace, $idTrajet);		
+	$html.= affichageTD($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace, $idTrajet);		
 	
 	}
 $html.= fin();

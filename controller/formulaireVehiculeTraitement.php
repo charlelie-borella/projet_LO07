@@ -11,16 +11,18 @@ if(isset($_SESSION['membre'])){
 
 	if(	isset($_POST["marque"]) && !empty($_POST["marque"]) &&
 		isset($_POST["modele"]) && !empty($_POST["modele"]) &&
+		isset($_POST["couleur"]) && !empty($_POST["couleur"]) &&
 		isset($_POST["date"]) && !empty($_POST["date"])
 		){
 	
 		$marque = htmlspecialchars($_POST["marque"]);
 		$modele = htmlspecialchars($_POST["modele"]);
+		$couleur = htmlspecialchars($_POST["couleur"]);
 		$date = htmlspecialchars($_POST["date"]);			
 
 		$exec = new Exec($myBase->getMyBase());
 
-		$tab = array('vehicule'=>array('marque'=>$marque, 'modele'=>$modele, 'dateService'=>$date));
+		$tab = array('vehicule'=>array('marque'=>$marque, 'modele'=>$modele, 'couleur'=>$couleur, 'dateService'=>$date));
 
 		$query = $exec->createExecFromArray($tab);
 		$exec->execBD($query);
@@ -34,6 +36,8 @@ if(isset($_SESSION['membre'])){
 		// echo "</pre>";
 
 		$exec->execBD($tab);
+
+		$_SESSION['membre']->setVehiculeID($myBase->getMyBase()->lastInsertId());
 		
 	    header('Location: messageAlerte.php?message=7');
 	}

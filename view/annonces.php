@@ -24,7 +24,7 @@ html;
 //
 //Fonction pour les trajets pas encore effectués (date < date trajet)
 //Retourne l'entête du tableau hmtl seulement.
-function Tfuturs() {
+function affichageTH() {
 
 $html=<<<html
 
@@ -38,49 +38,7 @@ $html=<<<html
       <th>prix</th>
       <th>Nombre de place</th>
       <th>Passagers</th>
-      </tr></p>
-html;
-  return $html;
-}
-
-// _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-// Fonction qui permet d'afficher les trajets pas encore effectués. 
-// Chaque variable est insérée dans la tableau et 
-// Il y a un bouton "voir liste passager" pour voir leurs profils.
-// Pas possible de donner des avis puisque le trajet n'est pas encore effectué
-function affichageTFuturs($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace, $idTrajet){
-  $html=<<<html
-    <tr>
-        <td>$dateTrajet
-        <td>$villeDep
-        <td>$villeAr
-        <td>$prix
-        <td>$nbPlace
-        <form action="ficheDescriptifTrajet.php" method="POST">
-              <td><button type="submit" id="bouton" class="btn btn-primary">Descriptif</button>      
-              <input type="hidden" name="idTrajet" value=$idTrajet></input>
-              </form> 
-html;
-  return $html;
-}
-
-//_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-//Fonction pour les trajets déjà effectués (date > date trajet)
-//Retourne l'entête du tableau html seulement.
-function TPasses() {
-  $html=<<<html
-
-<p><table class="table table-striped">
-<ul class='list-group'>
-<li class='list-group-item list-group-item-warning'>Trajets passés</li>
-      <tr>
-      <th>Date du trajet</th>
-      <th>Ville de départ</th>
-      <th>Ville d'arrivée</th>
-      <th>prix</th>
-      <th>Nombre de place</th>
-      <th>Passagers</th>
-      </tr></p>
+      <th></th>
 html;
   return $html;
 }
@@ -89,7 +47,7 @@ html;
 // Fonction qui permet d'afficher les trajets déjà effectués. 
 // Chaque variable est insérée dans la tableau et 
 // Il y a un bouton "voir liste passager" pour voir leurs profils et mettre des avis.
-function affichageTPasses($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace, $idTrajet){
+function affichageTD($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace, $idTrajet){
   $html=<<<html
     <tr><td>$dateTrajet
         <td>$villeDep
@@ -97,9 +55,16 @@ function affichageTPasses($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace, $id
         <td>$prix
         <td>$nbPlace
         <form action="ficheDescriptifTrajet.php" method="POST">
-              <td><button type="submit" id="bouton" class="btn btn-primary">Descriptif</button>      
+              <td><input type="submit" id="bouton" value="Descriptif" class="btn btn-primary"></input>      
               <input type="hidden" name="idTrajet" value=$idTrajet></input>
-              </form> 
+              </form>
+        <form action="suppresionTrajetTraitement.php" method="POST">
+        <td><input type="submit" id="boutonSup" value="Supprimer" class="btn btn-primary"></input>      
+        <input type="hidden" name="idTrajet" value=$idTrajet></input>
+        <input type="hidden" name="dateTrajet" value=$dateTrajet></input>
+        <input type="hidden" name="villeDep" value=$villeDep></input>
+        <input type="hidden" name="villeAr" value=$villeAr></input>
+        </form>  
 html;
   return $html;
 }
