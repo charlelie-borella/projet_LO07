@@ -25,7 +25,6 @@ function ResPassees() {
 <li class='list-group-item list-group-item-info'>Trajets réservés réalisés</li>
       <tr>
       <th>Conducteur</th>
-      <th>Conducteur</th>
       <th>Date</th>
       <th>Ville de départ</th>
       <th>Ville d'arrivée</th>
@@ -36,21 +35,6 @@ html;
 
 
 // _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-//Affichage du tableau des reservations passées
-
-function affichageRP($Prnom, $idConducteur, $date, $villeDep, $villeAr){
-  $html=<<<html
-    <tr><td>$Prnom
-        <td>$idConducteur
-        <td>$date
-        <td>$villeDep
-        <td>$villeAr
-        <td><a href="annoncesPassagers.php" class="btn btn-primary" role="button">Donner une note au conducteur</a>
-html;
-  return $html;
-}
-
-// _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 //fonction pour les trajets déjà effectués où date > date trajet
 function ResFutures() {
   $html=<<<html
@@ -59,7 +43,6 @@ function ResFutures() {
 <ul class='list-group'>
 <li class='list-group-item list-group-item-warning'>Trajets réservés à venir</li>
       <tr>
-      <th>Conducteur
       <th>Conducteur</th>
       <th>Date</th>
       <th>Ville de départ</th>
@@ -71,14 +54,16 @@ html;
 
 // _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 //Affichage du tableau des reservations futures
-function affichageRF($Prnom, $idConducteur, $date, $villeDep, $villeAr){
+function affichage($Prnom, $date, $villeDep, $villeAr, $idVoyage){
   $html=<<<html
     <tr><td>$Prnom
-        <td>$idConducteur
         <td>$date
         <td>$villeDep
         <td>$villeAr
-        <td><a href="annoncesPassagers.php" class="btn btn-primary" role="button">Donner une note au conducteur</a>
+        <td><form action="formulaireAvis.php" method="post">
+        <input type="hidden" name="idTrajet" value=$idVoyage></input>
+        <input type="submit" class="btn btn-primary" value="Noter le conducteur" />
+        </form>
 html;
   return $html;
 }

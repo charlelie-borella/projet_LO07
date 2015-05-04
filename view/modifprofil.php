@@ -118,12 +118,10 @@ html;
 //fonction qui permet d'avoir accès au numéro de téléphone
 function tel(){
 $html=<<<html
-	<form class="form-horizontal" action="modifProfilTraitement.php" method="post">
+	<form class="form-inline" action="modifProfilTraitement.php" method="post">
 	  <div class="form-group">
-	    <label for="tel" class="col-sm-2 control-label">Votre numéro de téléphone :</label>
-	    <div class="col-sm-10">
+	    <label for="tel">Votre numéro de téléphone :</label>
 	      <input type="text" name="tel" class="form-control" id="tel" placeholder="0689765378">
-	    </div>
 	  </div>
 
 	<input type="submit" class="btn btn-default btn-sm  btn-info"  value="valider"></input>
@@ -139,20 +137,12 @@ html;
 //fonction qui permet d'avoir accès au mot de passe
 function password(){
 $html=<<<html
-	<form class="form-horizontal" action="modifProfilTraitement.php" method="post">
+	<form class="form-inline" action="modifProfilTraitement.php" method="post">
 	<div class="form-group">
-	    <label for="password" class="col-sm-2 control-label">Votre mot de passe :</label>
-	    <div class="col-sm-10">
-	      <input type="pass" name="pass" class="form-control" id="pass" placeholder="*******">
-	    </div>
+	    <label for="password">Votre mot de passe :</label>
+	    <input type="pass" name="pass" class="form-control" id="pass" placeholder="*******">
 	</div>
 
-	<div id="formPass2" class="form-group">
-		    <label for="inputPassword2" class="col-sm-2 control-label">Confirmation</label>
-		    <div class="col-sm-10">
-		      <input type="password" class="form-control" id="inputPassword2" placeholder="Confirmation mot de passe">
-		    </div>
-		  </div>
 	<input type="submit" class="btn btn-default btn-sm  btn-info"  value="valider"></input>
 	</form>
 

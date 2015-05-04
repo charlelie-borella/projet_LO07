@@ -44,7 +44,6 @@ $html=<<<html
     Votre date de naissance : $dateNais<br />
     Votre e-mail : $mail<br />
     Votre numéro de téléphone : $tel<br />
-    Votre mot de passe : $mdp<br />
     </p>
     
   </div>

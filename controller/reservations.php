@@ -16,44 +16,53 @@ include("initBD.php");
 // _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 //Appel de la fonction session_start qui permet de créer les sessions : 
 session_start();
-//if(isset($_SESSION['membre'])){
-// _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+if(isset($_SESSION['membre'])){
 $query = new Query($myBase->getMyBase());
-//Requête SQL
-$myQuery = "SELECT trajet.idTrajet, conducteurID, dateTrajet, villeDepart, villeArrivee, prnm FROM voyage, membre, trajet WHERE `dateTrajet` < CURRENT_TIMESTAMP AND trajet.conducteurID = membre.idMembre AND trajet.idTrajet = voyage.idTrajet AND voyage.idPassager = " . $_SESSION['membre']->getIdMembre();
+$myQuery = "SELECT voyage.idVoyage, voyage.idTrajet, conducteurID, dateTrajet, villeDepart, villeArrivee, prnm FROM voyage, membre, trajet WHERE `dateTrajet` < CURRENT_TIMESTAMP AND trajet.conducteurID = membre.idMembre AND trajet.idTrajet = voyage.idTrajet AND voyage.idPassager = " . $_SESSION['membre']->getIdMembre();
 $test = $query->queryBD($myQuery);
 
-var_dump($test);
 $res = $query->recoverQueryInArray();
-//}
+
 //Création de deux tableaux : $ResPassees pour les objets trajets 
-//$membre pour ajouter le nom du conducteur
 	$ResPassees = array();
-	$membre = array();	
+	$conducteur1 = array();
 
-	foreach ($res as $key => $value) {	
-		$membre[$res][$key]['conducteurID'] = $res[$key]['prnom'];	
-		$ResPassees[] = new trajet($res[$key]['idTrajet'], $res[$key]['conducteurID'],"", $res[$key]['dateTrajet'], $res[$key]['villeDepart'], $res[$key]['villeArrivee'], $res[$key]['prix'], $res[$key]['nbPlace']);
-	}
 
-	 echo "<pre>";
-	 var_dump($res);
-	 echo "</pre>";	
+
+	foreach ($res as $key => $value) {
+
+		$conducteur1[$value['conducteurID']] = $value['prnm'];	
+		$ResPassees[$value['idVoyage']] = new trajet($res[$key]['idTrajet'], $res[$key]['conducteurID'],"", $res[$key]['dateTrajet'], $res[$key]['villeDepart'], $res[$key]['villeArrivee'], "", "");
+	}	
+	// echo "<pre>";
+	// var_dump($membre);
+	// echo "</pre>";	
+	// echo "<pre>";
+	//var_dump($ResPassees);
+	// echo "</pre>";
 // _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
 $query = new Query($myBase->getMyBase());
-$myQuery1 = "SELECT * FROM trajet, membre WHERE `dateTrajet` > CURRENT_TIMESTAMP AND `conducteurID` = `idMembre`";
-$query->queryBD($myQuery1);
+$myQuery1 = "SELECT voyage.idTrajet, conducteurID, dateTrajet, villeDepart, villeArrivee, prnm FROM voyage, membre, trajet WHERE `dateTrajet` > CURRENT_TIMESTAMP AND trajet.conducteurID = membre.idMembre AND trajet.idTrajet = voyage.idTrajet AND voyage.idPassager = " . $_SESSION['membre']->getIdMembre();
+$test2 = $query->queryBD($myQuery1);
 
 $res = $query->recoverQueryInArray();
-
+	// echo "<pre>";
+	// var_dump($res);
+	// echo "</pre>";
 	$ResFutures = array();
+	$conducteur2 = array();
 
 	foreach ($res as $key => $value) {	
-		$membre[$res][$key]['conducteurID'] = $res[$key]['prnom'];		
-		$ResFutures[] = new trajet($res[$key]['idTrajet'], $res[$key]['conducteurID'],"", $res[$key]['dateTrajet'], $res[$key]['villeDepart'], $res[$key]['villeArrivee'], $res[$key]['prix'], $res[$key]['nbPlace']);
+		$conducteur2[$value['conducteurID']] = $value['prnm'];
+		$ResFutures[$value['idVoyage']] = new trajet($res[$key]['idTrajet'], $res[$key]['conducteurID'],"", $res[$key]['dateTrajet'], $res[$key]['villeDepart'], $res[$key]['villeArrivee'], $res[$key]['prix'], $res[$key]['nbPlace']);
 	}
 
+	// echo "<pre>";
+	// var_dump($conducteur);
+	// echo "</pre>";	
 // _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
 $html= headerSite("Vos annonces");
@@ -66,14 +75,15 @@ $html.=nav();
 
 $html.=ResFutures();
 foreach ($ResFutures as $key => $value) {
-	$conducteurNom = $RP1[$value->getConducteurID];
+	$conducteurNom = $membre[$value->getConducteurID()];
 	$conducteurID = $value->getConducteurID();
+	$idVoyage = $key;
 	$dateTrajet = $value->getDate();
 	$villeDep = $value->getVilleDepart();
 	$villeAr = $value->getVilleArrivee();
 	
 	
-	$html.= affichageRF($conducteurID, $dateTrajet, $villeDep, $villeAr);	
+	$html.= affichage($conducteurNom, $dateTrajet, $villeDep, $villeAr, $idVoyage);	
 }
 $html.= fin();
 
@@ -85,13 +95,13 @@ $html.= fin();
 $html.=ResPassees();
 foreach ($ResPassees as $key => $value) {
 
-	$prnom = $value->getPrnom();
-	$conducteurID = $value->getConducteurID();
+	$conducteurNom = $conducteur1[$value->getConducteurID()];
+	$idVoyage = $key;
 	$dateTrajet = $value->getDate();
 	$villeDep = $value->getVilleDepart();
 	$villeAr = $value->getVilleArrivee();
 
-	$html.= affichageRP($conducteurID, $dateTrajet, $villeDep, $villeAr);		
+	$html.= affichage($conducteurNom, $dateTrajet, $villeDep, $villeAr, $idVoyage);		
 	
 	}
 $html.= fin();
@@ -99,3 +109,7 @@ $html.= fin();
 $html.= foot();
 
 echo $html;
+}
+else {
+	header('Location: ../messageAlerte.php?message=4');
+}

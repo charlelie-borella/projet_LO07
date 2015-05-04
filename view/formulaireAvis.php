@@ -26,9 +26,8 @@ function formulaireAvis($action, $idVoyage){
 			    <div class="col-sm-10">			   
 			      <textarea class="form-control" name="commentaire" id="commentaire" rows="3" placeholder="Ex: Trajet très agréable et convivial"></textarea>
 			    </div>
-			  </div>			
-
-			  <input type="hidden" name="idVoyage" value=$idVoyage>
+			  </div>						 
+			  <input type="hidden" name="idVoyage" value=$idVoyage></input>
 			  <div class="form-group">
 			    <div class="col-sm-offset-2 col-sm-10">
 			      <button type="submit" class="btn btn-default">Envoyer</button>
