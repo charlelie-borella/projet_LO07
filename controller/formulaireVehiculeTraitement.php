@@ -35,16 +35,9 @@ if(isset($_SESSION['membre'])){
 
 		$exec->execBD($tab);
 		
-		//header('Location: messageAlerte.php?message=7');
+	    header('Location: messageAlerte.php?message=7');
 	}
 }
-<<<<<<< HEAD
-else{
-	header('Location: messageAlerte.php?message=0');	
-}
-
-=======
 else {
 		header('Location: messageAlerte.php?message=0');
 }
->>>>>>> origin/master
