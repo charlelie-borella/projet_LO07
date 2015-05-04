@@ -9,7 +9,6 @@ function nav() {
   <li role="presentation"><a href="annonces.php">Vos Annonces</a></li>
   <li role="presentation" class="active"><a href="#">Vos réservations</a></li>
   <li role="presentation"><a href="messages.php">Messages</a></li>
-  <li role="presentation"><a href="avis.php">Avis</a></li>
   <li role="presentation"><a href="modifprofil.php">Profil</a></li>
 </ul>
 html;

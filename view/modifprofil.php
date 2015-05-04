@@ -13,7 +13,6 @@ $html=<<<html
   <li role="presentation"><a href="annonces.php">Vos Annonces</a></li>
   <li role="presentation"><a href="reservations.php">Vos réservations</a></li>
   <li role="presentation"><a href="messages.php">Messages</a></li>
-  <li role="presentation"><a href="avis.php">Avis</a></li>
   <li role="presentation" class="active"><a href="modifprofil.php">Profil</a></li>
 </ul>
 html;
@@ -34,12 +33,10 @@ html;
 //fonction qui permet d'avoir accès au prénom
 function prnm(){
 $html=<<<html
-	<form class="form-horizontal" action="modifProfilTraitement.php" method="post">
+	<form class="form-inline" action="modifProfilTraitement.php" method="post">
 	  <div class="form-group">
-	    <label for="prenom" class="col-sm-2 control-label">Votre prénom :</label>
-	    <div class="col-sm-10">
+	    <label for="prenom">Votre prénom :</label>
 	      <input type="text" name="prnm" class="form-control" id="prenom" placeholder="prenom">
-	    </div>
 	  </div>
 
 	<input type="submit" class="btn btn-default btn-sm  btn-info"  value="valider"></input>
@@ -55,13 +52,11 @@ html;
 //fonction qui permet d'avoir accès au nom
 function nom(){
 $html=<<<html
-	<form class="form-horizontal" action="modifProfilTraitement.php" method="post">
+	<form class="form-inline" action="modifProfilTraitement.php" method="post">
 	  <div class="form-group">
-	    <label for="nom" class="col-sm-2 control-label">Votre nom :</label>
-	    <div class="col-sm-10">
+	    <label for="nom">Votre nom :</label>
 	      <input type="text" name="nom" class="form-control" id="nom" placeholder="Nom">
 	    </div>
-	  </div>
 
 	<input type="submit" class="btn btn-default btn-sm  btn-info"  value="valider"></input>
 
@@ -76,12 +71,10 @@ html;
 //fonction qui permet d'avoir accès à la date de naissance
 function DateNais(){
 $html=<<<html
-	<form class="form-horizontal" action="modifProfilTraitement.php" method="post">
+	<form class="form-inline" action="modifProfilTraitement.php" method="post">
 	  <div class="form-group">
-	    <label for="dateNais" class="col-sm-2 control-label">Votre date de naissance :</label>
-	    <div class="col-sm-10">
+	    <label for="dateNais">Votre date de naissance :</label>
 	      <input type="date" name="dateNais" class="form-control" id="dateNais" placeholder="jj/mm/aaaa">
-	    </div>
 	  </div>
 
 	<input type="submit" class="btn btn-default btn-sm  btn-info"  value="valider"></input>
@@ -97,12 +90,10 @@ html;
 //fonction qui permet d'avoir accès à l'e-mail
 function email(){
 $html=<<<html
-	<form class="form-horizontal" action="modifProfilTraitement.php" method="post">
+	<form class="form-inline" action="modifProfilTraitement.php" method="post">
 	  <div class="form-group">
-	    <label for="mail" class="col-sm-2 control-label">Votre mail :</label>
-	    <div class="col-sm-10">
+	    <label for="mail">Votre mail :</label>
 	      <input type="text" name="mail" class="form-control" id="mail" placeholder="nom.prenom@mail.com">
-	    </div>
 	  </div>
 
 	<input type="submit" class="btn btn-default btn-sm  btn-info"  value="valider"></input>
