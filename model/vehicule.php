@@ -1,4 +1,3 @@
-
 <?php
 class vehicule {
 	private $idVehicule = "";
@@ -12,7 +11,7 @@ class vehicule {
 
 
 function __construct($idVehicule, $nbPlace, $marque, $modele, $photo_vehicule, $confort) {
-        echo "<pre>$idVehicule, $nbPlace, $marque, $modele, $photo_vehicule, $confort</pre><br/>\n";
+        //echo "<pre>$idVehicule, $nbPlace, $marque, $modele, $photo_vehicule, $confort</pre><br/>\n";
         $this->setIdVehicule($idVehicule);
         $this->setNbPlace($nbPlace);
         $this->setMarque($maque);
@@ -47,6 +46,9 @@ function __construct($idVehicule, $nbPlace, $marque, $modele, $photo_vehicule, $
 
     function getConfort() {
         return $this->confort;
+    }
+    function getDateService() {
+        return $this->date_format($this->dateNais, 'd/m/Y');
     }
 /* Les appels set */
     function setIdVehicule($idVehicule) {

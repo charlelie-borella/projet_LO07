@@ -6,9 +6,8 @@ require_once ("../model/membre.php");
 include("initBD.php");
 session_start();
 
-
-
 if(isset($_SESSION['membre'])){
+
 
 	if(	isset($_POST["marque"]) && !empty($_POST["marque"]) &&
 		isset($_POST["modele"]) && !empty($_POST["modele"]) &&
@@ -36,8 +35,16 @@ if(isset($_SESSION['membre'])){
 
 		$exec->execBD($tab);
 		
-		header('Location: messageAlerte.php?message=7');
+		//header('Location: messageAlerte.php?message=7');
 	}
 }
+<<<<<<< HEAD
+else{
+	header('Location: messageAlerte.php?message=0');	
+}
 
-header('Location: messageAlerte.php?message=0');
+=======
+else {
+		header('Location: messageAlerte.php?message=0');
+}
+>>>>>>> origin/master

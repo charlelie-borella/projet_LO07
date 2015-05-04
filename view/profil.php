@@ -19,59 +19,70 @@ $html=<<<html
   <li role="presentation"><a href="avis.php">Avis</a></li>
   <li role="presentation"><a href="modifprofil.php">Profil</a></li>
 </ul>
-<h3>Bonjour
+
+<h3>Bonjour $membre</h3>
 
 html;
+  return $html;
+}
 
-//Variable hmtl qui récupère le prénom de l'utilisateur.
-$html.=$membre->getPrnom();
-
-$html.=<<<html
-</h3>
+function profil($photo) {
+$html=<<<html
 <p>
 <div class="thumbnail">
 <div class="media">
   <div class="media-left media-middle">
     <a href="#">
-      <img class="media-object" src="../imageprofil/visueldefaut.jpg" alt="image par défaut">
+      <img class="media-object img-profil" src=$photo alt="image par défaut">
     </a>
   </div>
   <div class="media-body">
     <h3 class="media-heading">Votre profil </h3>
-    <p></p>
+    <p>
+
+    </p>
+    
+  </div>
+</div>
+</div>
+</p> 
+html;
+  return $html; 
+}
+
+
+function preferences() {
+$html=<<<html
+<p>
+<div class="thumbnail">
+<div class="media">
+
+  <div class="media-body">
+    <h3 class="media-heading">Vos préférences</h3>
     
   </div>
 </div>
 </div>
 </p>
+html;
+  return $html; 
+}
 
 
+function vehicule($modele, $marque, $annee) {
+$html=<<<html
 <p>
 <div class="thumbnail">
 <div class="media">
   <div class="media-left media-middle">
-    <a href="#">
-      <img class="media-object" src="" alt="">
-    </a>
-  </div>
-  <div class="media-body">
-    <h3 class="media-heading">Vos préférences</h3>
-    J'aime bien les animaux. J'aime écouter de la musique.
-  </div>
-</div>
-</div>
-<p>
 
-<p>
-<div class="thumbnail">
-<div class="media">
-  <div class="media-left media-middle">
-    <a href="#">
-      <img class="media-object" src="../ImagesBlablacar/voituredefaut.png" alt="Voiture">
-    </a>
   </div>
   <div class="media-body">
     <h3 class="media-heading">Votre véhicule</h3>
+    
+    Mon modèle : $modele<br />
+    Marque : $marque<br />
+    Année de mise en service : $annee<br />
   </div>
 </div>
 </div>

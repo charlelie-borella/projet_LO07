@@ -1,10 +1,23 @@
 $(function() {
 
 	var success ="<input type='text' class='form-control' id='inputSuccess2' aria-describedby='inputSuccess2Statu' <span class='glyphicon glyphicon-ok form-control-feedback' aria-hidden='true'></span>";
-	var res = true;
 	
+	
+	$("form").submit(function( event ) {
+		var res = true;
+	//Vérification champ NOM
+		if ( $("#nom").val() == ""  ) {
+			res = false;
+			$( "#formNom" ).attr({
+			  class: "form-group has-error"			  
+			});
+		}
+		else{
+			$( "#formNom" ).attr({
+			  class: "form-group has-success"			  
+			});
+		}
 
-	$("#prnm").change(function() {
 		if ( $("#prnm").val() == ""  ) {
 			res = false;
 			$( "#formPrnm" ).attr({
@@ -16,19 +29,8 @@ $(function() {
 			  class: "form-group has-success"			  
 			});
 		}
-	});	
+		
 
-	
-	$("form").submit(function( event ) {
-	//Vérification champ NOM
-		if ( $("#nom").val() == "" ) {		  	
-			var res = false;	  	
-		}
-
-		if ( $("#prnm").val() == "" ) {		  	
-			var res = false;	  	
-		}
-	//Vérification champ PRENOM			
 	
 		if( $("#jour option:selected").val() == "-" ||  $("#mois option:selected").val() == "-" || $("#annee option:selected").val() == "-"){
 			res = false;
@@ -40,13 +42,7 @@ $(function() {
 			$( "#formDate" ).attr({
 				class: "form-group has-success"			  
 			});
-		}
-
-
-		
-			
-
-			
+		}		
 
 		//Vérification champ MAIL
 		if ( $("#mail").val() == "") {
@@ -73,7 +69,26 @@ $(function() {
 			  class: "form-group has-success"			  
 			});
 		}
-		 
-			return res;
-		});
+		
+		if( $( "#pass1" ).val() == "" || $( "#pass1" ).val() != $( "#pass2" ).val() ){
+		 res = false;
+			$( "#formPass1" ).attr({
+			  class: "form-group has-error"			  
+			});
+			$( "#formPass2" ).attr({
+			  class: "form-group has-error"			  
+			});
+		}
+		else{			
+			$( "#formPass1" ).attr({
+			  class: "form-group has-success"			  
+			});
+			$( "#formPass2" ).attr({
+			  class: "form-group has-success"			  
+			});
+
+		}
+		return res;
+	});
+
 });

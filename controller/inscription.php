@@ -9,7 +9,7 @@ require_once("../view/foot.php");
 $html= headerSite("inscription");
 $html.= menu();
 $html.= formulaire("inscriptionTraitement.php");
-$html.= "<script src='content/js/connexionVerificationFormulaire.js'></script>";
+$html.= "<script src='content/js/inscriptionVerificationFormulaire.js'></script>";
 $html.= foot();
 
 echo $html;

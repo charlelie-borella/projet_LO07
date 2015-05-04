@@ -20,11 +20,12 @@ session_start();
 
 
 $query = new Query($myBase->getMyBase());
-//Requête SQL sur les tables trajet et membre avec jointure.
-$myQuery = "SELECT idTrajet, conducteurID, dateTrajet, villeDepart, villeArrivee, prnom FROM trajet, membre WHERE `dateTrajet` < CURRENT_TIMESTAMP AND `trajet.conducteurID` = `membre.idMembre` AND idMembre != " . $_SESSION['membre']->getIdMembre();
+//Requête SQL
+$myQuery = "SELECT idTrajet, conducteurID, dateTrajet, villeDepart, villeArrivee, prnom FROM voyage, trajet, membre WHERE `dateTrajet` < CURRENT_TIMESTAMP AND `trajet.conducteurID` = `membre.idMembre` AND `trajet.idTrajet` = `voyage.idTrajet` AND idPassager = " . $_SESSION['membre']->getIdMembre();
 
-$query->queryBD($myQuery);
+$test = $query->queryBD($myQuery);
 
+var_dump($test);
 $res = $query->recoverQueryInArray();
 
 //Création de deux tableaux : $ResPassees pour les objets trajets 

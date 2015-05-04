@@ -81,17 +81,17 @@ html;
 		    </div>
 		  </div>
 
-		  <div id="formNomPass1" class="form-group">
+		  <div id="formPass1" class="form-group">
 		    <label for="inputPassword1" class="col-sm-2 control-label">Mot de passe</label>
 		    <div class="col-sm-10">
-		      <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Mot de passe">
+		      <input type="password" name="password" class="form-control" id="pass1" placeholder="Mot de passe">
 		    </div>
 		  </div>
 
 		   <div id="formPass2" class="form-group">
 		    <label for="inputPassword2" class="col-sm-2 control-label">Confirmation</label>
 		    <div class="col-sm-10">
-		      <input type="password" class="form-control" id="inputPassword2" placeholder="Confirmation mot de passe">
+		      <input type="password" class="form-control" id="pass2" placeholder="Confirmation mot de passe">
 		    </div>
 		  </div>
 

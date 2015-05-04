@@ -13,9 +13,9 @@ $file = basename(__FILE__);
 
 $html= headerSite("formulaireAvis");
 $html.= menu();
-if(isset($_SESSION['membre']) && isset($_POST['idVoyage']))
+if(isset($_SESSION['membre']) && isset($_POST['idTrajet']))
 {
-	$html.= formulaireAvis("formulaireAvisTraitement.php", $_POST['idVoyage']);
+	$html.= formulaireAvis("formulaireAvisTraitement.php", $_POST['idTrajet']);
 }
 
 $html.= foot();

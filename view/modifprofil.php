@@ -22,10 +22,19 @@ html;
 
 //Zone où l'utilisateur doit se décire : 
 function contenu (){
+	//<textarea class="form-control" rows="3"></textarea>
 $html=<<<html
+	<form class="form-horizontal" action="modifProfilTraitement.php" method="post">
+	  <div class="form-group">
+	    <label for="prenom" class="col-sm-2 control-label">Prénom :</label>
+	    <div class="col-sm-10">
+	      <input type="text" name="prnm" class="form-control" id="prenom" placeholder="prenom">
+	    </div>
+	  </div>
 
-<textarea class="form-control" rows="3"></textarea>
+	<input type="submit" class="btn btn-default"  value="Enregistrer les modifications"></input>
 
+	</form>
 
 html;
   return $html; 

@@ -7,9 +7,9 @@ include("initBD.php");
 session_start();
 
 
-
+// SI l'utilisateur est connecté 
 if(isset($_SESSION['membre'])){
-
+// SI l'on a les données suivantes :
 	if(	isset($_POST["note"]) && !empty($_POST["note"]) &&
 		isset($_POST["commentaire"]) && !empty($_POST["commentaire"]) &&
 		isset($_POST["idVoyage"]) && !empty($_POST["idVoyage"])
@@ -21,7 +21,7 @@ if(isset($_SESSION['membre'])){
 
 		$exec = new Exec($myBase->getMyBase());
 
-		$tab = array('commentaire'=>array('note'=>$note, 'commentaire'=>$commentaire);
+		$tab = array('commentaire'=>array('note'=>$note, 'commentaire'=>$commentaire));
 
 		$query = $exec->createExecFromArray($tab);
 		$exec->execBD($query);
@@ -30,6 +30,9 @@ if(isset($_SESSION['membre'])){
 		// echo "</pre>";
 
 		//var_dump($myBase->getMyBase()->lastInsertId());
+		// var_dump($_POST["idVoyage"]);
+		// var_dump($idVoyage);
+		// var_dump($myBase->getMyBase()->lastInsertId());
 
 		$tab = "INSERT INTO voyage(idVoyage, commentaireID) VALUES('" . $idVoyage . "', '" . $myBase->getMyBase()->lastInsertId() . "') ON DUPLICATE KEY UPDATE commentaireID=". $myBase->getMyBase()->lastInsertId();
 		// echo "<pre>";
@@ -41,5 +44,7 @@ if(isset($_SESSION['membre'])){
 		header('Location: messageAlerte.php?message=9');
 	}
 }
+else{
+header('Location: messageAlerte.php?message=0');	
+}
 
-header('Location: messageAlerte.php?message=0');
