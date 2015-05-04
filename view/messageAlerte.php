@@ -27,7 +27,10 @@ function alerte($alerte, $message, $link, $messageRedictions){
 	$html.="</div>";
 }
 
+<<<<<<< HEAD
 //Messages d'alertes au cas où il y ait une erreur sur le site.
+=======
+>>>>>>> origin/master
 function contenu($message){
 	$html="";
 
