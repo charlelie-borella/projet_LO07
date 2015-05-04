@@ -1,12 +1,14 @@
 <?php
+//Page qui affiche la liste des annonces (idMembre = conducteurID)
 
 require_once("../view/header.php");
 require_once("../view/menu.php");
+require_once("../view/annonces.php");
+require_once("../view/foot.php");
+
 require_once("../model/voyage.php");
 require_once("../model/trajet.php");
-require_once("../view/annonces.php");
 require_once("../model/query.php");
-require_once("../view/foot.php");
 require_once("../model/membre.php"); 
 include("initBD.php");
 //Il faut inclure la classe pour accéder au membre
@@ -61,8 +63,9 @@ foreach ($listeAF as $key => $value) {
 	$villeAr = $value->getVilleArrivee();
 	$prix = $value->getPrix();
 	$nbPlace = $value->getNbPlace();
+	$idTrajet = $value->getIdTrajet();
 	
-	$html.= affichageTPasses($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace);	
+	$html.= affichageTFuturs($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace, $idTrajet);	
 }
 $html.= fin();
 
@@ -80,7 +83,7 @@ foreach ($listeAP as $key => $value) {
 	$prix = $value->getPrix();
 	$nbPlace = $value->getNbPlace();
 
-	$html.= affichageTFuturs($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace);		
+	$html.= affichageTpasses($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace, $idTrajet);		
 	
 	}
 $html.= fin();

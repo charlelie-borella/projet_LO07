@@ -39,5 +39,6 @@ if(isset($_SESSION['membre'])){
 		header('Location: messageAlerte.php?message=7');
 	}
 }
-
-header('Location: messageAlerte.php?message=0');
+else {
+		header('Location: messageAlerte.php?message=0');
+}

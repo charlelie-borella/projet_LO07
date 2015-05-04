@@ -1,4 +1,5 @@
 <?php
+//Page qui affiche la liste des annonces (idMembre = conducteurID)
 
 //Models requis : 
 require_once("../model/membre.php");
@@ -48,7 +49,7 @@ html;
 // Chaque variable est insérée dans la tableau et 
 // Il y a un bouton "voir liste passager" pour voir leurs profils.
 // Pas possible de donner des avis puisque le trajet n'est pas encore effectué
-function affichageTFuturs($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace){
+function affichageTFuturs($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace, $idTrajet){
   $html=<<<html
     <tr>
         <td>$dateTrajet
@@ -56,7 +57,10 @@ function affichageTFuturs($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace){
         <td>$villeAr
         <td>$prix
         <td>$nbPlace
-        <td><a href="annoncesPassagers.php" class="btn btn-primary" role="button">Voir liste passagers</a>
+        <form action="ficheDescriptifTrajet.php" method="POST">
+              <td><button type="submit" id="bouton" class="btn btn-primary">Descriptif</button>      
+              <input type="hidden" name="idTrajet" value=$idTrajet></input>
+              </form> 
 html;
   return $html;
 }
@@ -86,14 +90,17 @@ html;
 // Fonction qui permet d'afficher les trajets déjà effectués. 
 // Chaque variable est insérée dans la tableau et 
 // Il y a un bouton "voir liste passager" pour voir leurs profils et mettre des avis.
-function affichageTPasses($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace){
+function affichageTPasses($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace, $idTrajet){
   $html=<<<html
     <tr><td>$dateTrajet
         <td>$villeDep
         <td>$villeAr
         <td>$prix
         <td>$nbPlace
-        <td><a href="annoncesPassagers.php" class="btn btn-primary" role="button">Voir liste passagers</a>
+        <form action="ficheDescriptifTrajet.php" method="POST">
+              <td><button type="submit" id="bouton" class="btn btn-primary">Descriptif</button>      
+              <input type="hidden" name="idTrajet" value=$idTrajet></input>
+              </form> 
 html;
   return $html;
 }

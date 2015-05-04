@@ -28,7 +28,7 @@ function formulaireAvis($action, $idVoyage){
 			    </div>
 			  </div>			
 
-			  <input type="hidden" name="idTrajet" value=$idVoyage>
+			  <input type="hidden" name="idVoyage" value=$idVoyage>
 			  <div class="form-group">
 			    <div class="col-sm-offset-2 col-sm-10">
 			      <button type="submit" class="btn btn-default">Envoyer</button>
