@@ -16,20 +16,18 @@ include("initBD.php");
 // _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 //Appel de la fonction session_start qui permet de créer les sessions : 
 session_start();
+//if(isset($_SESSION['membre'])){
 // _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-
-
 $query = new Query($myBase->getMyBase());
 //Requête SQL
-$myQuery = "SELECT idTrajet, conducteurID, dateTrajet, villeDepart, villeArrivee, prnom FROM voyage, trajet, membre WHERE `dateTrajet` < CURRENT_TIMESTAMP AND `trajet.conducteurID` = `membre.idMembre` AND `trajet.idTrajet` = `voyage.idTrajet` AND idPassager = " . $_SESSION['membre']->getIdMembre();
-
+$myQuery = "SELECT trajet.idTrajet, conducteurID, dateTrajet, villeDepart, villeArrivee, prnm FROM voyage, membre, trajet WHERE `dateTrajet` < CURRENT_TIMESTAMP AND trajet.conducteurID = membre.idMembre AND trajet.idTrajet = voyage.idTrajet AND voyage.idPassager = " . $_SESSION['membre']->getIdMembre();
 $test = $query->queryBD($myQuery);
 
 var_dump($test);
 $res = $query->recoverQueryInArray();
-
+//}
 //Création de deux tableaux : $ResPassees pour les objets trajets 
-// $membre pour ajouter le nom du conducteur
+//$membre pour ajouter le nom du conducteur
 	$ResPassees = array();
 	$membre = array();	
 
@@ -41,7 +39,6 @@ $res = $query->recoverQueryInArray();
 	 echo "<pre>";
 	 var_dump($res);
 	 echo "</pre>";	
-
 // _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
 $query = new Query($myBase->getMyBase());

@@ -26,20 +26,25 @@ html;
   return $html;
 }
 
-function profil($photo) {
+function profil($photo, $nom, $dateNais, $mail, $tel, $mdp) {
 $html=<<<html
 <p>
 <div class="thumbnail">
 <div class="media">
+  <h3 class="media-heading">Votre profil </h3>
   <div class="media-left media-middle">
     <a href="#">
       <img class="media-object img-profil" src=$photo alt="image par défaut">
     </a>
   </div>
   <div class="media-body">
-    <h3 class="media-heading">Votre profil </h3>
+    
     <p>
-
+    Votre nom : $nom<br />
+    Votre date de naissance : $dateNais<br />
+    Votre e-mail : $mail<br />
+    Votre numéro de téléphone : $tel<br />
+    Votre mot de passe : $mdp<br />
     </p>
     
   </div>

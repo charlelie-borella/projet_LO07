@@ -21,11 +21,16 @@ $html.= menu($file);
 if(isset($_SESSION['membre'])) {
 
 	$membre = $_SESSION['membre']->getPrnom();
-
+	
+	$nom = $_SESSION['membre']->getNom();
+	$dateNais = $_SESSION['membre']->getDateNais();
+	$mail = $_SESSION['membre']->getMail();
+	$tel = $_SESSION['membre']->getTel();
+	$mdp = $_SESSION['membre']->getPassword();
 	$photo = $_SESSION['membre']->getPhotoProfil();
-
+	
 	$html.= contenu($membre);
-	$html.=profil($photo);
+	$html.=profil($photo, $nom, $dateNais, $mail, $tel, $mdp);
 		$html.=preferences();
 	//Requête pour récupérer le véhicule du membre
 	$query = new Query($myBase->getMyBase());
