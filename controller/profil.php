@@ -31,10 +31,12 @@ if(isset($_SESSION['membre'])) {
 	
 	$html.= contenu($membre);
 	$html.=profil($photo, $nom, $dateNais, $mail, $tel, $mdp);
-		$html.=preferences();
+
+	if(isset($_SESSION['vehicule'])) {
+
 	//Requête pour récupérer le véhicule du membre
 	$query = new Query($myBase->getMyBase());
-	$myQuery = "SELECT modele, marque, dateService FROM membre, vehicule WHERE membre.vehiculeID = vehicule.idVehicule AND idMembre=" . $_SESSION['membre']->getIdMembre();
+	$myQuery = "SELECT modele, marque, dateService, couleur FROM membre, vehicule WHERE membre.vehiculeID = vehicule.idVehicule AND idMembre=" . $_SESSION['membre']->getIdMembre();
 	$query->queryBD($myQuery);
 	// echo "<pre>";
 	// var_dump($query);
@@ -55,7 +57,23 @@ if(isset($_SESSION['membre'])) {
 	}
 	
 	
+<<<<<<< Updated upstream
+=======
+	$modele= $res[0]["modele"];
+	$marque= $res[0]["marque"];
+	$annee= date_format(new DateTime($res[0]["dateService"]), 'd/m/Y');
+	$couleur=$res[0]['couleur'];
+	$html.=vehicule($modele, $marque, $annee, $couleur);
+} 
+else { 
+>>>>>>> Stashed changes
 
+	$html.="
+	<div class='thumbnail'>
+		<h3 class='media-heading'>Votre véhicule</h3><br />
+		Enregistrez votre véhicule lorsque vous proposez votre premier trajet !
+	</div>";
+	}
 
 } 
 else { 

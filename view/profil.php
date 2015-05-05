@@ -54,25 +54,7 @@ html;
 }
 
 
-function preferences() {
-$html=<<<html
-<p>
-<div class="thumbnail">
-<div class="media">
-
-  <div class="media-body">
-    <h3 class="media-heading">Vos préférences</h3>
-    
-  </div>
-</div>
-</div>
-</p>
-html;
-  return $html; 
-}
-
-
-function vehicule($modele, $marque, $annee) {
+function vehicule($modele, $marque, $annee, $couleur) {
 $html=<<<html
 <p>
 <div class="thumbnail">
@@ -85,6 +67,7 @@ $html=<<<html
     
     Mon modèle : $modele<br />
     Marque : $marque<br />
+    Couleur : $couleur<br />
     Année de mise en service : $annee<br />
   </div>
 </div>
