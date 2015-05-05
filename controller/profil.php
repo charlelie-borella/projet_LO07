@@ -57,8 +57,8 @@ if(isset($_SESSION['membre'])) {
 	}
 	
 	
-<<<<<<< Updated upstream
-=======
+
+
 	$modele= $res[0]["modele"];
 	$marque= $res[0]["marque"];
 	$annee= date_format(new DateTime($res[0]["dateService"]), 'd/m/Y');
@@ -66,7 +66,7 @@ if(isset($_SESSION['membre'])) {
 	$html.=vehicule($modele, $marque, $annee, $couleur);
 } 
 else { 
->>>>>>> Stashed changes
+
 
 	$html.="
 	<div class='thumbnail'>
