@@ -27,6 +27,7 @@ function ResPassees() {
       <th>Date</th>
       <th>Ville de départ</th>
       <th>Ville d'arrivée</th>
+      <th></th>
       </tr></p>
 html;
   return $html;
@@ -46,7 +47,8 @@ function ResFutures() {
       <th>Date</th>
       <th>Ville de départ</th>
       <th>Ville d'arrivée</th>
-      </tr></p>
+      <th></th>
+      </tr>
 html;
   return $html;
 }

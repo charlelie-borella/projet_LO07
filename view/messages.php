@@ -3,7 +3,7 @@
 require_once("../model/membre.php");
 
 //Page qui sert à gérer les messages échangés entre utilisateurs
-function contenu() {
+function nav() {
 $html=<<<html
 <ul class="nav nav-tabs">
   <li role="presentation"><a href="profil.php">Votre Profil</a></li>
@@ -14,6 +14,22 @@ $html=<<<html
 </ul>
 
 html;
+	return $html;
+}
+
+function affichageMessage($message, $nom, $prnm){
+
+	$html=<<<html
+		<div class="panel panel-info">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Message de $nom $prnm</h3>
+		  </div>
+		  <div class="panel-body">
+		    $message		
+		  </div>
+		</div>
+html;
+
 	return $html;
 }
 ?>
