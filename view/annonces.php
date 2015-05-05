@@ -37,7 +37,8 @@ $html=<<<html
       <th>Ville d'arrivée</th>
       <th>prix</th>
       <th>Nombre de place</th>
-      <th>Passagers</th>
+      <th></th>
+      <th></th>
       <th></th>
 html;
   return $html;
@@ -47,7 +48,48 @@ html;
 // Fonction qui permet d'afficher les trajets déjà effectués. 
 // Chaque variable est insérée dans la tableau et 
 // Il y a un bouton "voir liste passager" pour voir leurs profils et mettre des avis.
-function affichageTD($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace, $idTrajet){
+function affichageTrajetPasse($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace, $idTrajet, $etat){
+  $html=<<<html
+    <tr><td>$dateTrajet
+        <td>$villeDep
+        <td>$villeAr
+        <td>$prix
+        <td>$nbPlace
+        <form action="ficheDescriptifTrajet.php" method="POST">
+              <td><input type="submit" id="bouton" value="Descriptif" class="btn btn-primary"></input>      
+              <input type="hidden" name="idTrajet" value=$idTrajet></input>
+              </form>
+html;
+
+if($etat == 0){
+    $html.=<<<html
+        <form action="validationTrajetTraitement.php" method="POST">
+          <td><input type="submit" id="boutonValiderTrajet" value="Valider" class="btn btn-primary"></input>      
+              <input type="hidden" name="idTrajet" value=$idTrajet></input>
+              <input type="hidden" name="prix" value=$prix></input>
+        <input type="hidden" name="idTrajet" value=$idTrajet></input>
+html;
+  }    
+
+$html.=<<<html
+        <form action="suppresionTrajetTraitement.php" method="POST">
+        <td><input type="submit" id="boutonSup" value="Supprimer" class="btn btn-primary"></input>      
+            <input type="hidden" name="idTrajet" value=$idTrajet></input>
+            <input type="hidden" name="dateTrajet" value=$dateTrajet></input>
+            <input type="hidden" name="villeDep" value=$villeDep></input>
+            <input type="hidden" name="villeAr" value=$villeAr></input>
+        </form>
+html;
+  return $html;
+}
+
+  
+
+// _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+// Fonction qui permet d'afficher les trajets passés. 
+// Chaque variable est insérée dans la tableau et 
+// Il y a un bouton "voir liste passager" pour voir leurs profils et mettre des avis.
+function affichageAVenir($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace, $idTrajet){
   $html=<<<html
     <tr><td>$dateTrajet
         <td>$villeDep

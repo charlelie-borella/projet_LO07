@@ -28,7 +28,9 @@ function debConduc($type){
 				<tr>
 				    <th>Nom
 				    <th>Prénom</th>
-				    <th>Mail				    
+				    <th>Mail</th>
+				    <th></th>
+				    <th></th>			    
 				</tr>
 html;
 	return $html;
@@ -53,6 +55,10 @@ function ficheConduc($nom, $prnm, $mail, $idPassager, $idTrajet){
 				<button type="submit" id="bouton" class="btn btn-primary">Commentaire</button>
 				<input type="hidden" name="idPassager" value=$idPassager></input>
 				<input type="hidden" name="idTrajet" value=$idTrajet></input>		
+				</form>
+			<td><form action="messagerie.php" method="POST">
+				<button type="submit" id="bouton" class="btn btn-primary">Message</button>
+				<input type="hidden" name="idPassager" value=$idPassager></input>				
 				</form>	
 html;
 

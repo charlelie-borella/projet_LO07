@@ -6,7 +6,7 @@ include("initBD.php");
 
 session_start();
 
-if($_SESSION['membre'])
+if(isset($_SESSION['membre']) && isset($_POST['idTrajet']))
 {
 
 	$idTrajet = htmlspecialchars($_POST["idTrajet"]);

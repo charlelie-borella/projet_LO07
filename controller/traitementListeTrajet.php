@@ -26,7 +26,7 @@ if(isset($_POST['date']) && isset($_POST['villeDep']) && isset($_POST['villeAr']
 
 	$listeTrajet = array();
 	foreach ($res as $key => $value) {		
-		$listeTrajet[] = new trajet($res[$key]['idTrajet'], $res[$key]['conducteurID'],"", $res[$key]['dateTrajet'], $res[$key]['villeDepart'], $res[$key]['villeArrivee'], $res[$key]['prix'], $res[$key]['nbPlace']);
+		$listeTrajet[] = new trajet($res[$key]['idTrajet'], $res[$key]['conducteurID'],"", $res[$key]['dateTrajet'], $res[$key]['villeDepart'], $res[$key]['villeArrivee'], $res[$key]['prix'], $res[$key]['nbPlace'], $res[$key]['etat']);
 	}		
 
 	$_SESSION['listeTrajet'] = $listeTrajet;

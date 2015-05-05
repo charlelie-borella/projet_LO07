@@ -9,72 +9,83 @@ require_once("../model/membre.php");
 
 function contenu($membre) {
 //Ici équivalent de la fonction nav avec page "Votre Profil" active
-$html=<<<html
+  $html=<<<html
 
-<ul class="nav nav-tabs">
-  <li role="presentation" class="active"><a href="#">Votre Profil</a></li>
-  <li role="presentation"><a href="annonces.php">Vos Annonces</a></li>
-  <li role="presentation"><a href="reservations.php">Vos réservations</a></li>
-  <li role="presentation"><a href="messages.php">Messages</a></li>
-  <li role="presentation"><a href="modifprofil.php">Profil</a></li>
-</ul>
+  <ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="profil.php">Votre Profil</a></li>
+    <li role="presentation"><a href="annonces.php">Vos Annonces</a></li>
+    <li role="presentation"><a href="reservations.php">Vos réservations</a></li>
+    <li role="presentation"><a href="messages.php">Messages</a></li>
+    <li role="presentation"><a href="modifprofil.php">Profil</a></li>
+  </ul>
 
-<h3>Bonjour $membre</h3>
+  <h3>Bonjour $membre</h3>
 
 html;
   return $html;
 }
 
-function profil($photo, $nom, $dateNais, $mail, $tel, $mdp) {
-$html=<<<html
-<p>
-<div class="thumbnail">
-<div class="media">
-  <h3 class="media-heading">Votre profil </h3>
-  <div class="media-left media-middle">
-    <a href="#">
-      <img class="media-object img-profil" src=$photo alt="image par défaut">
-    </a>
+function solde($solde) {
+//Ici équivalent de la fonction nav avec page "Votre Profil" active
+  $html=<<<html
+
+   <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">Solde</h3>
+    </div>
+    <div class="panel-body">
+      <table class="table profil-solde">
+        <tr><td>Votre solde : <td>$solde €
+      </table>
+    </div>
   </div>
-  <div class="media-body">
-    
-    <p>
-    Votre nom : $nom<br />
-    Votre date de naissance : $dateNais<br />
-    Votre e-mail : $mail<br />
-    Votre numéro de téléphone : $tel<br />
-    </p>
-    
-  </div>
-</div>
-</div>
-</p> 
+
 html;
-  return $html; 
+  return $html;
 }
 
+function profil($photo, $prnm, $nom, $dateNais, $mail, $tel, $mdp) {
+  $html=<<<html
+      <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3 class="panel-title">Votre véhicule</h3>
+          </div>
+          <div class="panel-body">
+            <div class="media">
+              <div class="media-left media-top">
+                  <img class="media-object img-profil" src=$photo alt="image par défaut">
+              </div>            
+            <div class="media-body">
+              <table class="table profil">
+                <tr><td>Votre nom : <td>$nom
+                <tr><td>Votre prénom : <td>$prnm
+                <tr><td> Votre date de naissance : <td>$dateNais
+                <tr><td>Votre e-mail: <td>$mail
+                <tr><td>Votre numéro de téléphone : <td>$tel
+              </table>
+            </div>
+          </div>
+        </div>
+    </div>
+html;
+  return $html;
+}
 
-function vehicule($modele, $marque, $annee, $couleur) {
-$html=<<<html
-<p>
-<div class="thumbnail">
-<div class="media">
-  <div class="media-left media-middle">
-
-  </div>
-  <div class="media-body">
-    <h3 class="media-heading">Votre véhicule</h3>
-    
-    Mon modèle : $modele<br />
-    Marque : $marque<br />
-    Couleur : $couleur<br />
-    Année de mise en service : $annee<br />
-  </div>
-</div>
-</div>
-
-<a href="modifprofil.php" class="btn btn-default" role="button">Modifier votre profil</a>
-<p>
+function vehicule($modele, $couleur, $marque, $annee ) {
+  $html=<<<html
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Votre véhicule</h3>
+      </div>
+      <div class="panel-body">
+        <table class="table profil">
+          <tr><td>Mon modèle : <td>$modele
+          <tr><td>Marque : <td>$marque
+          <tr><td>Couleur : <td>$couleur
+          <tr><td>Année de mise en service : <td>$annee
+        </table>
+      </div>
+    </div>
 
 html;
 	return $html;

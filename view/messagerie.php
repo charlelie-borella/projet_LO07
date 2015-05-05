@@ -15,15 +15,21 @@ html;
 	return $html;
 }
 
-function affichageMessage($message, $nom, $prnm){
+function messageBox($idPassager){
 
 	$html=<<<html
 		<div class="panel panel-info">
 		  <div class="panel-heading">
-		    <h3 class="panel-title">Message de $nom $prnm</h3>
+		    <h3 class="panel-title">Nouveau message</h3>
 		  </div>
 		  <div class="panel-body">
-		    $message		
+		  <form action="messagerieTraitement.php" method="POST">
+  			<div class="form-group">
+		   		<textarea name="message" class="form-control" rows="3"></textarea>		  
+		    	<input type="hidden" name="idPassager" value=$idPassager></input>
+		    </div>
+			 	<button type="submit" class="btn btn-default">Envoyer</button>		
+			</form>	
 		  </div>
 		</div>
 html;

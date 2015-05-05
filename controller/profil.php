@@ -13,76 +13,59 @@ include("initBD.php");
 session_start();
 $file = basename(__FILE__);     
 
-$html= headerSite("Votre profil");
-$html.= menu($file);
-
-
-//Partie "Votre profil"
 if(isset($_SESSION['membre'])) {
 
-	$membre = $_SESSION['membre']->getPrnom();
-	
+	$html= headerSite("Votre profil");
+	$html.= menu($file);
+
+	//Partie "Votre profil"
+
+	$prnm = $_SESSION['membre']->getPrnom();	
 	$nom = $_SESSION['membre']->getNom();
 	$dateNais = $_SESSION['membre']->getDateNais();
 	$mail = $_SESSION['membre']->getMail();
 	$tel = $_SESSION['membre']->getTel();
 	$mdp = $_SESSION['membre']->getPassword();
 	$photo = $_SESSION['membre']->getPhotoProfil();
-	
-	$html.= contenu($membre);
-	$html.=profil($photo, $nom, $dateNais, $mail, $tel, $mdp);
 
-	if(isset($_SESSION['vehicule'])) {
-
-	//Requête pour récupérer le véhicule du membre
 	$query = new Query($myBase->getMyBase());
-	$myQuery = "SELECT modele, marque, dateService, couleur FROM membre, vehicule WHERE membre.vehiculeID = vehicule.idVehicule AND idMembre=" . $_SESSION['membre']->getIdMembre();
+	$myQuery = "SELECT solde FROM compte WHERE idCompte=" . $_SESSION['membre']->getCompteID();
 	$query->queryBD($myQuery);
-	// echo "<pre>";
-	// var_dump($query);
-	// echo "</pre>";
-	$res = $query->recoverQueryInArray();
+	$resSolde = $query->recoverQueryInArray();
 
- 
-//echo "<pre>";
-//var_dump($res);
-//echo "</pre>";
-	if($res != null){
+	$solde = $resSolde[0]['solde'];
+	
+	$html.= contenu($prnm);
+	$html.=profil($photo, $prnm, $nom, $dateNais, $mail, $tel, $mdp);
+	$html.=solde($solde);
+
+	if($_SESSION['membre']->getVehiculeID() != null){	
+	//Requête pour récupérer le véhicule du membre
+		$query = new Query($myBase->getMyBase());
+		$myQuery = "SELECT modele, marque, dateService, couleur FROM membre, vehicule WHERE membre.vehiculeID = vehicule.idVehicule AND idMembre=" . $_SESSION['membre']->getIdMembre();
+		$query->queryBD($myQuery);
+
+		$res = $query->recoverQueryInArray();
+
+	
 		$modele= $res[0]["modele"];
 		$marque= $res[0]["marque"];
 		$annee= date_format(new DateTime($res[0]["dateService"]), 'd/m/Y');
-		$html.=vehicule($modele, $marque, $annee);
-	}else{
-		$html.=vehicule($modele="", $marque="", $annee="");
+		$html.=vehicule($modele, $couleur="", $marque, $annee);
 	}
-	
-	
+	else{
 
-
-	$modele= $res[0]["modele"];
-	$marque= $res[0]["marque"];
-	$annee= date_format(new DateTime($res[0]["dateService"]), 'd/m/Y');
-	$couleur=$res[0]['couleur'];
-	$html.=vehicule($modele, $marque, $annee, $couleur);
-} 
-else { 
-
-
-	$html.="
-	<div class='thumbnail'>
-		<h3 class='media-heading'>Votre véhicule</h3><br />
-		Enregistrez votre véhicule lorsque vous proposez votre premier trajet !
-	</div>";
 	}
 
+	$html.= foot();
+
+	echo $html;
+	 
 } 
 else { 
-	$html.= "Vous devez vous connecter."; 
+	header('Location: messageAlerte.php?message=1');
 }
 
 
 
 
-$html.= foot();
-
-echo $html;

@@ -25,7 +25,7 @@ $res = $query->recoverQueryInArray();
 
 	$listeAP = array();
 	foreach ($res as $key => $value) {		
-		$listeAP[] = new trajet($res[$key]['idTrajet'], $res[$key]['conducteurID'],"", $res[$key]['dateTrajet'], $res[$key]['villeDepart'], $res[$key]['villeArrivee'], $res[$key]['prix'], $res[$key]['nbPlace']);
+		$listeAP[] = new trajet($res[$key]['idTrajet'], $res[$key]['conducteurID'],"", $res[$key]['dateTrajet'], $res[$key]['villeDepart'], $res[$key]['villeArrivee'], $res[$key]['prix'], $res[$key]['nbPlace'], $res[$key]['etat']);
 	}
 
 	// echo "<pre>";
@@ -42,7 +42,7 @@ $res = $query->recoverQueryInArray();
 
 	$listeAF = array();
 	foreach ($res as $key => $value) {		
-		$listeAF[] = new trajet($res[$key]['idTrajet'], $res[$key]['conducteurID'],"", $res[$key]['dateTrajet'], $res[$key]['villeDepart'], $res[$key]['villeArrivee'], $res[$key]['prix'], $res[$key]['nbPlace']);
+		$listeAF[] = new trajet($res[$key]['idTrajet'], $res[$key]['conducteurID'],"", $res[$key]['dateTrajet'], $res[$key]['villeDepart'], $res[$key]['villeArrivee'], $res[$key]['prix'], $res[$key]['nbPlace'], $res[$key]['etat']);
 	}
 
 
@@ -65,7 +65,7 @@ foreach ($listeAF as $key => $value) {
 	$nbPlace = $value->getNbPlace();
 	$idTrajet = $value->getIdTrajet();
 	
-	$html.= affichageTD($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace, $idTrajet);	
+	$html.= affichageAVenir($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace, $idTrajet);	
 }
 $html.= fin();
 
@@ -83,8 +83,9 @@ foreach ($listeAP as $key => $value) {
 	$prix = $value->getPrix();
 	$nbPlace = $value->getNbPlace();
 	$idTrajet = $value->getIdTrajet();
+	$etat = $value->getEtat();
 
-	$html.= affichageTD($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace, $idTrajet);		
+	$html.= affichageTrajetPasse($dateTrajet, $villeDep, $villeAr, $prix, $nbPlace, $idTrajet,$etat);		
 	
 	}
 $html.= fin();

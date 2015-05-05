@@ -7,10 +7,11 @@ class trajet {
 	private $villeDepart;
 	private $villeArrivee; 
     private $prix;
-    private $nbPlace; 
+    private $nbPlace;
+    private $etat;
 
 
-function __construct($idTrajet, $conducteurID, $dateAnnonce, $dateTrajet, $villeDepart, $villeArrivee, $prix, $nbPlace) {
+function __construct($idTrajet, $conducteurID, $dateAnnonce, $dateTrajet, $villeDepart, $villeArrivee, $prix, $nbPlace, $etat) {
         //echo "<pre>$idTrajet, $conducteurID, $dateAnnonce, $dateTrajet, $villeDepart, $villeArrivee, $prix, $nbPlace</pre><br/>\n";
         $this->setIdTrajet($idTrajet);
         $this->setConducteurID($conducteurID);
@@ -19,7 +20,8 @@ function __construct($idTrajet, $conducteurID, $dateAnnonce, $dateTrajet, $ville
         $this->setVilleDepart($villeDepart);
         $this->setVilleArrivee($villeArrivee);
         $this->setPrix($prix);
-        $this->setNbPlace($nbPlace);       
+        $this->setNbPlace($nbPlace); 
+        $this->setEtat($etat);  
     }
 
     function __toString() {
@@ -65,6 +67,10 @@ function __construct($idTrajet, $conducteurID, $dateAnnonce, $dateTrajet, $ville
     function getNbPlace() {
         return $this->nbPlace;
     }
+
+    function getEtat() {
+        return $this->etat;
+    }
 /* Les appels set */
     function setIdTrajet($idTrajet) {
         $this->idTrajet = $idTrajet;
@@ -96,6 +102,9 @@ function __construct($idTrajet, $conducteurID, $dateAnnonce, $dateTrajet, $ville
     
     function setNbPlace($nbPlace) {
         $this->nbPlace = $nbPlace;
+    }
+    function setEtat($etat) {
+        $this->etat = $etat;
     }
 
 }

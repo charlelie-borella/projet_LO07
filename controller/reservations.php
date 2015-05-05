@@ -34,7 +34,7 @@ $res = $query->recoverQueryInArray();
 	foreach ($res as $key => $value) {
 
 		$conducteur1[$value['conducteurID']] = $value['prnm'];	
-		$ResPassees[$value['idVoyage']] = new trajet($res[$key]['idTrajet'], $res[$key]['conducteurID'],"", $res[$key]['dateTrajet'], $res[$key]['villeDepart'], $res[$key]['villeArrivee'], "", "");
+		$ResPassees[$value['idVoyage']] = new trajet($res[$key]['idTrajet'], $res[$key]['conducteurID'],"", $res[$key]['dateTrajet'], $res[$key]['villeDepart'], $res[$key]['villeArrivee'], "", "", null);
 	}	
 	// echo "<pre>";
 	// var_dump($membre);

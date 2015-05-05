@@ -159,6 +159,26 @@ html;
 			</div>
 html;
 	}
+		else if($message == 12){		
+		$html.=<<<html
+			<div id="body">
+				<div class="alert alert-success center_text" role="alert">
+				 Message envoyé.<br>
+				  <a href="profil.php" class="alert-link">Retourner au profil</a> 
+				</div>
+			</div>
+html;
+	}
+	else if($message == 13){		
+		$html.=<<<html
+			<div id="body">
+				<div class="alert alert-success center_text" role="alert">
+				 Trajet validé.<br>
+				  <a href="profil.php" class="alert-link">Retourner au profil</a> 
+				</div>
+			</div>
+html;
+	}
 
 	return $html;
 }
