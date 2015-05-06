@@ -32,8 +32,12 @@ $html=<<<html
 			  <td><select name="jour" id="jour" class="form-control">
 			  <option value="-">-</option>
 html;
-			for ($i=1; $i <= 31 ; $i++) { 
-				$html.= "<option value='$i'>$i</option>";
+			for ($i=1; $i <= 31 ; $i++) {
+				if($i<=9){
+					$html.= "<option value='0$i'>0$i</option>";
+				}else{
+					$html.= "<option value='$i'>$i</option>";	
+				}					
 			}
 	$html.=<<<html
 			</select>
@@ -41,8 +45,13 @@ html;
 			<td><select name="mois" id="mois" class="form-control">
 			<option value="-">-</option>
 html;
-			for ($i=1; $i <= 12; $i++) { 
-				$html.= "<option value='$i'>$i</option>";
+			for ($i=1; $i <= 12; $i++){
+				if($i<=9){
+					$html.= "<option value='0$i'>0$i</option>";
+				}else{
+					$html.= "<option value='$i'>$i</option>";	
+				}
+				
 			}
 
 			$html.=<<<html

@@ -20,6 +20,7 @@ if(!isset($_SESSION['membre'])){
 		$tel = htmlspecialchars($_POST["tel"]);
 		$mail = htmlspecialchars($_POST["mail"]);
 		$prnm = htmlspecialchars($_POST["prnm"]);
+		$date = htmlspecialchars($_POST["annee"])."-".htmlspecialchars($_POST["mois"])."-".htmlspecialchars($_POST["jour"]);		
 		$photo = "";
 
 		if(isset($_FILES['photo']['name']) && !empty($_FILES['photo']['name'])){
@@ -55,7 +56,7 @@ if(!isset($_SESSION['membre'])){
 
 		$exec = new Exec($myBase->getMyBase());
 
-		$tab = array('membre'=>array('nom'=>$nom, 'prnm'=>$prnm, 'mail'=>$mail, 'tel'=>$tel, 'photoProfil'=>$photo, 'password'=>$password, 'compteID'=>$myBase->getMyBase()->lastInsertId()));
+		$tab = array('membre'=>array('nom'=>$nom, 'dateNais'=>$date,'prnm'=>$prnm, 'mail'=>$mail, 'tel'=>$tel, 'photoProfil'=>$photo, 'password'=>$password, 'compteID'=>$myBase->getMyBase()->lastInsertId()));
 		$query = $exec->createExecFromArray($tab);
 
 		$exec->execBD($query);

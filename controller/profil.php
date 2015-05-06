@@ -19,7 +19,7 @@ if(isset($_SESSION['membre'])) {
 	$html.= menu($file);
 
 	//Partie "Votre profil"
-
+	$idMembre = $_SESSION['membre']->getIdMembre();
 	$prnm = $_SESSION['membre']->getPrnom();	
 	$nom = $_SESSION['membre']->getNom();
 	$dateNais = $_SESSION['membre']->getDateNais();
@@ -29,6 +29,18 @@ if(isset($_SESSION['membre'])) {
 	$photo = $_SESSION['membre']->getPhotoProfil();
 
 	$query = new Query($myBase->getMyBase());
+	$requeteAVG = "SELECT AVG(note) as AVG
+				FROM voyage v, commentaire c, trajet t 
+				WHERE t.idTrajet = v.idTrajet AND
+				(v.commentaireConducteur = c.idCommentaire AND t.conducteurID =" . $idMembre . ") OR
+				(v.commentairePassager = c.idCommentaire AND v.idPassager =" . $idMembre . ")";
+	
+	$query->queryBD($requeteAVG);
+	$resAVG = $query->recoverQueryInArray();
+
+	$note = round($resAVG[0]['AVG'], 1, PHP_ROUND_HALF_DOWN);
+
+	$query = new Query($myBase->getMyBase());
 	$myQuery = "SELECT solde FROM compte WHERE idCompte=" . $_SESSION['membre']->getCompteID();
 	$query->queryBD($myQuery);
 	$resSolde = $query->recoverQueryInArray();
@@ -36,7 +48,7 @@ if(isset($_SESSION['membre'])) {
 	$solde = $resSolde[0]['solde'];
 	
 	$html.= contenu($prnm);
-	$html.=profil($photo, $prnm, $nom, $dateNais, $mail, $tel, $mdp);
+	$html.=profil($photo, $prnm, $nom, $dateNais, $mail, $tel, $mdp, $note);
 	$html.=solde($solde);
 
 	if($_SESSION['membre']->getVehiculeID() != null){	

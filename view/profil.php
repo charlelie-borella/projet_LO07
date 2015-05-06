@@ -44,11 +44,11 @@ html;
   return $html;
 }
 
-function profil($photo, $prnm, $nom, $dateNais, $mail, $tel, $mdp) {
+function profil($photo, $prnm, $nom, $dateNais, $mail, $tel, $mdp, $note) {
   $html=<<<html
       <div class="panel panel-info">
           <div class="panel-heading">
-            <h3 class="panel-title">Votre véhicule</h3>
+            <h3 class="panel-title">Votre profil</h3>
           </div>
           <div class="panel-body">
             <div class="media">
@@ -61,7 +61,8 @@ function profil($photo, $prnm, $nom, $dateNais, $mail, $tel, $mdp) {
                 <tr><td>Votre prénom : <td>$prnm
                 <tr><td> Votre date de naissance : <td>$dateNais
                 <tr><td>Votre e-mail: <td>$mail
-                <tr><td>Votre numéro de téléphone : <td>$tel
+                <tr><td>Votre numéro de téléphone : <td>$tel                
+                <tr><td>Note : <td>$note
               </table>
             </div>
           </div>

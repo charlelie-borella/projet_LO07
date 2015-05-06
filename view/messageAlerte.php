@@ -144,7 +144,7 @@ html;
 			<div id="body">
 				<div class="alert alert-success center_text" role="alert">
 				 Inscription enregistré.<br>
-				  <a href="profil.php" class="alert-link">Retourner au profil</a> 
+				  <a href="index.php" class="alert-link">Retourner l'accueil</a> 
 				</div>
 			</div>
 html;
