@@ -24,13 +24,13 @@ html;
 //
 //Fonction pour les trajets pas encore effectués (date < date trajet)
 //Retourne l'entête du tableau hmtl seulement.
-function affichageTH() {
+function affichageTH($titre) {
 
 $html=<<<html
 
 <p><table class="table table-striped">
 <ul class='list-group'>
-<li class='list-group-item list-group-item-info'>Trajets à venir</li>
+<li class='list-group-item list-group-item-info'>$titre</li>
       <tr>
       <th>Date du trajet</th>
       <th>Ville de départ</th>

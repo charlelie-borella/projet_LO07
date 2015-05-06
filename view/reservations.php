@@ -41,7 +41,7 @@ function ResFutures() {
 
 <p><table class="table table-striped">
 <ul class='list-group'>
-<li class='list-group-item list-group-item-warning'>Trajets réservés à venir</li>
+<li class='list-group-item list-group-item-info'>Trajets réservés à venir</li>
       <tr>
       <th>Conducteur</th>
       <th>Date</th>

@@ -54,8 +54,8 @@ $html.=nav();
 //Tableau avec voyages pas encore effectués
 
 // Il faudrait peut être mettre UNIQUEMENT les trajets dont date < date trajet 
-
-$html.=affichageTH();
+$TitreAVenir = "Trajet à venir";
+$html.=affichageTH($TitreAVenir);
 foreach ($listeAF as $key => $value) {
 
 	$dateTrajet = $value->getDate();
@@ -73,10 +73,11 @@ $html.= fin();
 
 // Tableau avec les voyages déjà effectués
 // $idPassager, $dateTrajet, $villeDep, $villeAr, $prix, $nbPlace
+$TitreRealise = "Trajet réalisés";
+$html.=affichageTH($TitreRealise);
 
-$html.=affichageTH();
 foreach ($listeAP as $key => $value) {
-
+	
 	$dateTrajet = $value->getDate();
 	$villeDep = $value->getVilleDepart();
 	$villeAr = $value->getVilleArrivee();
