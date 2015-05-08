@@ -35,7 +35,7 @@ $res = $query->recoverQueryInArray();
 
 		$conducteur1[$value['conducteurID']] = $value['prnm'];	
 		$ResPassees[$value['idVoyage']] = new trajet($res[$key]['idTrajet'], $res[$key]['conducteurID'],"", $res[$key]['dateTrajet'], $res[$key]['villeDepart'], $res[$key]['villeArrivee'], "", "", null);
-	}	
+	}
 	// echo "<pre>";
 	// var_dump($membre);
 	// echo "</pre>";	
@@ -44,20 +44,20 @@ $res = $query->recoverQueryInArray();
 	// echo "</pre>";
 // _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
-$query = new Query($myBase->getMyBase());
-$myQuery1 = "SELECT voyage.idTrajet, conducteurID, dateTrajet, villeDepart, villeArrivee, prnm FROM voyage, membre, trajet WHERE `dateTrajet` > CURRENT_TIMESTAMP AND trajet.conducteurID = membre.idMembre AND trajet.idTrajet = voyage.idTrajet AND voyage.idPassager = " . $_SESSION['membre']->getIdMembre();
+$myQuery1 = "SELECT voyage.idVoyage, voyage.idTrajet, conducteurID, dateTrajet, villeDepart, villeArrivee, prnm FROM voyage, membre, trajet WHERE `dateTrajet` > CURRENT_TIMESTAMP AND trajet.conducteurID = membre.idMembre AND trajet.idTrajet = voyage.idTrajet AND voyage.idPassager = " . $_SESSION['membre']->getIdMembre();
 $test2 = $query->queryBD($myQuery1);
 
-$res = $query->recoverQueryInArray();
+$res2 = $query->recoverQueryInArray();
 	// echo "<pre>";
-	// var_dump($res);
+	// var_dump($res2);
 	// echo "</pre>";
 	$ResFutures = array();
 	$conducteur2 = array();
 
-	foreach ($res as $key => $value) {	
+	foreach ($res2 as $key => $value) {
+		
 		$conducteur2[$value['conducteurID']] = $value['prnm'];
-		$ResFutures[$value['idVoyage']] = new trajet($res[$key]['idTrajet'], $res[$key]['conducteurID'],"", $res[$key]['dateTrajet'], $res[$key]['villeDepart'], $res[$key]['villeArrivee'], $res[$key]['prix'], $res[$key]['nbPlace']);
+		$ResFutures[$value['idVoyage']] = new trajet($res2[$key]['idTrajet'], $res2[$key]['conducteurID'],"", $res2[$key]['dateTrajet'], $res2[$key]['villeDepart'], $res2[$key]['villeArrivee'], "", "", null);
 	}
 
 	// echo "<pre>";
@@ -74,8 +74,10 @@ $html.=nav();
 // Il faudrait peut être mettre UNIQUEMENT les trajets dont date < date trajet 
 
 $html.=ResFutures();
+
 foreach ($ResFutures as $key => $value) {
-	$conducteurNom = $membre[$value->getConducteurID()];
+
+	$conducteurNom = $conducteur2[$value->getConducteurID()];
 	$conducteurID = $value->getConducteurID();
 	$idVoyage = $key;
 	$dateTrajet = $value->getDate();
@@ -83,7 +85,7 @@ foreach ($ResFutures as $key => $value) {
 	$villeAr = $value->getVilleArrivee();
 	
 	
-	$html.= affichage($conducteurNom, $dateTrajet, $villeDep, $villeAr, $idVoyage);	
+	$html.= affichageFutur($conducteurNom, $dateTrajet, $villeDep, $villeAr, $idVoyage);	
 }
 $html.= fin();
 
@@ -101,7 +103,7 @@ foreach ($ResPassees as $key => $value) {
 	$villeDep = $value->getVilleDepart();
 	$villeAr = $value->getVilleArrivee();
 
-	$html.= affichage($conducteurNom, $dateTrajet, $villeDep, $villeAr, $idVoyage);		
+	$html.= affichagePass($conducteurNom, $dateTrajet, $villeDep, $villeAr, $idVoyage);		
 	
 	}
 $html.= fin();

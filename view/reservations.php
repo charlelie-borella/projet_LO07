@@ -55,7 +55,18 @@ html;
 
 // _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 //Affichage du tableau des reservations futures
-function affichage($Prnom, $date, $villeDep, $villeAr, $idVoyage){
+function affichageFutur($Prnom, $date, $villeDep, $villeAr, $idVoyage){
+  $html=<<<html
+    <tr><td>$Prnom
+        <td>$date
+        <td>$villeDep
+        <td>$villeAr       
+html;
+  return $html;
+}
+
+
+function affichagePass($Prnom, $date, $villeDep, $villeAr, $idVoyage){
   $html=<<<html
     <tr><td>$Prnom
         <td>$date
@@ -68,8 +79,6 @@ function affichage($Prnom, $date, $villeDep, $villeAr, $idVoyage){
 html;
   return $html;
 }
-
-
 
 // _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 //Function qui permet de fermer les tableaux ResPassees() et ResFutures()

@@ -32,8 +32,8 @@ if(isset($_SESSION['membre'])) {
 	$requeteAVG = "SELECT AVG(note) as AVG
 				FROM voyage v, commentaire c, trajet t 
 				WHERE t.idTrajet = v.idTrajet AND
-				(v.commentaireConducteur = c.idCommentaire AND t.conducteurID =" . $idMembre . ") OR
-				(v.commentairePassager = c.idCommentaire AND v.idPassager =" . $idMembre . ")";
+				(v.commentaireConducteur = c.idCommentaire AND v.idPassager =" . $idMembre . ") OR
+				(v.commentairePassager = c.idCommentaire AND t.conducteurID =" . $idMembre . ")";
 	
 	$query->queryBD($requeteAVG);
 	$resAVG = $query->recoverQueryInArray();

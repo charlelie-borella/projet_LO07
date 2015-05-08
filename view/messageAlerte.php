@@ -1,6 +1,6 @@
 <?php 
 
-function alerte($alerte, $message, $link, $messageRedictions){
+function alerte($alerte, $message, $link, $messageRedirection){
 
 	$html="<div id='body'>";
 	switch ($alerte) {
@@ -21,10 +21,11 @@ function alerte($alerte, $message, $link, $messageRedictions){
 			break;
 	}
 
-	$html.= $message;
-	$html.= "<a href='" . $link . "' class='alert-link'>" . $messageRediction ."</a>";
+	$html.= $message . "<br>";
+	$html.= "<a href='" . $link . "' class='alert-link'> " . $messageRedirection ."</a>";
 	$html.="</div>";
 	$html.="</div>";
+	return $html;
 }
 
 //<<<<<<< HEAD

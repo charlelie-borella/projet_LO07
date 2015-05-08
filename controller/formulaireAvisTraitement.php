@@ -45,7 +45,7 @@ if(isset($_SESSION['membre'])){
 		// var_dump($myBase->getMyBase()->lastInsertId());
 		$tab = "";
 		
-		if($typeVoyageur === "conducteur"){
+		if($typeVoyageur == "conducteur"){
 			$tab = "INSERT INTO voyage(idVoyage, commentaireConducteur) VALUES('" . $idVoyage . "', '" . $myBase->getMyBase()->lastInsertId() . "') ON DUPLICATE KEY UPDATE commentaireConducteur=". $myBase->getMyBase()->lastInsertId();
 		}else{
 			$tab = "INSERT INTO voyage(idVoyage, commentairePassager) VALUES('" . $idVoyage . "', '" . $myBase->getMyBase()->lastInsertId() . "') ON DUPLICATE KEY UPDATE commentairePassager=". $myBase->getMyBase()->lastInsertId();
