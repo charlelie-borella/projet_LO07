@@ -62,8 +62,9 @@ if(isset($_SESSION['membre'])) {
 	
 		$modele= $res[0]["modele"];
 		$marque= $res[0]["marque"];
+		$couleur= $res[0]["couleur"];
 		$annee= date_format(new DateTime($res[0]["dateService"]), 'd/m/Y');
-		$html.=vehicule($modele, $couleur="", $marque, $annee);
+		$html.=vehicule($modele, $couleur, $marque, $annee);
 	}
 	else{
 
