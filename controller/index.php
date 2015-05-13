@@ -17,7 +17,7 @@ if(isset($_SESSION['membre'])){
 	$html.= recherche("traitementListeTrajet.php");
 	$html.= "<script type='text/javascript' src='content/js/rechercheTrajet.js'></script>";
 }else{
-	$html.= alerte(2, "Vous devez être connecté", "connexion.php", "Se connecté");
+	$html.= alerte(2, "Vous devez être connecté", "connexion.php", "Se connecter");
 }
 
 $html.= foot();
