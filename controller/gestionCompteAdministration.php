@@ -17,7 +17,7 @@ $html= headerSite("gestion compte");
 $html.= menu($file);
 
 
-if($_SESSION['admin']){
+if(isset($_SESSION['admin'])){
 
 
 	$query = new Query($myBase->getMyBase());
@@ -53,6 +53,8 @@ if($_SESSION['admin']){
 
 	
 	$html.=fin();
+}else{
+	header("location: connexionAdministration.php");
 }
 
 

@@ -4,10 +4,13 @@ require_once("../view/administration/header.php");
 require_once("../view/administration/connexion.php");
 require_once("../view/administration/foot.php");
 
-      
-$html= headerSite("connexion administration");
+if(!isset($_SESSION['admin'])){     
 
-$html.= formulaireConnexion("connexionAdministrationTraitement.php");
-$html.= foot();
+	$html= headerSite("connexion administration");
+	$html.= formulaireConnexion("connexionAdministrationTraitement.php");
+	$html.= foot();
 
-echo $html;
+	echo $html;
+}else{
+	header("location: gestionCompteAdministration.php");
+}
