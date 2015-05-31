@@ -16,7 +16,6 @@ function contenu($membre) {
     <li role="presentation"><a href="annonces.php">Vos Annonces</a></li>
     <li role="presentation"><a href="reservations.php">Vos réservations</a></li>
     <li role="presentation"><a href="messages.php">Messages</a></li>
-    <li role="presentation"><a href="modifprofil.php">Profil</a></li>
   </ul>
 
   <h3>Bonjour $membre</h3>

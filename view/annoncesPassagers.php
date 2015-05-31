@@ -16,7 +16,6 @@ $html=<<<html
   <li role="presentation" class="active"><a href="#">Vos Annonces</a></li>
   <li role="presentation"><a href="reservations.php">Vos réservations</a></li>
   <li role="presentation"><a href="messages.php">Messages</a></li>
-  <li role="presentation"><a href="modifprofil.php">Profil</a></li>
 </ul>
 html;
   return $html;

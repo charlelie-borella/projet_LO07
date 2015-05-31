@@ -8,7 +8,7 @@ function deb($date, $nbPlace, $villeDep, $villeAr){
 	$html=<<<html
 	<div id="body">
 		<div id="listeTrajet">
-			<h3 class="titre">$nbPlace covoiturage de $villeDep à $villeAr le $date</h3>
+			<h3 class="titre">$nbPlace covoiturage(s) de $villeDep à $villeAr le $date</h3>
 			<div id="trajet">	
 				<table class="table">
 				<tr>
