@@ -12,8 +12,8 @@ function deb($date, $nbPlace, $villeDep, $villeAr){
 			<div id="trajet">	
 				<table class="table">
 				<tr>
-				    <th>Horaire</th>
-				    <th>Places disponibles</th> 
+				    <th>Horaire(s)</th>
+				    <th>Place(s) disponible(s)</th> 
 				    <th>Prix</th>
 				    <th></th>
 				</tr>
