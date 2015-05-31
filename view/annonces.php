@@ -70,15 +70,6 @@ if($etat == 0){
 html;
   }    
 
-$html.=<<<html
-        <form action="suppresionTrajetTraitement.php" method="POST">
-        <td><input type="submit" id="boutonSup" value="Supprimer" class="btn btn-primary"></input>      
-            <input type="hidden" name="idTrajet" value=$idTrajet></input>
-            <input type="hidden" name="dateTrajet" value=$dateTrajet></input>
-            <input type="hidden" name="villeDep" value=$villeDep></input>
-            <input type="hidden" name="villeAr" value=$villeAr></input>
-        </form>
-html;
   return $html;
 }
 
