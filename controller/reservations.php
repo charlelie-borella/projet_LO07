@@ -20,7 +20,7 @@ session_start();
 
 if(isset($_SESSION['membre'])){
 $query = new Query($myBase->getMyBase());
-$myQuery = "SELECT voyage.idVoyage, voyage.idTrajet, conducteurID, dateTrajet, villeDepart, villeArrivee, prnm FROM voyage, membre, trajet WHERE `dateTrajet` < CURRENT_TIMESTAMP AND trajet.conducteurID = membre.idMembre AND trajet.idTrajet = voyage.idTrajet AND voyage.idPassager = " . $_SESSION['membre']->getIdMembre();
+$myQuery = "SELECT voyage.idTrajet, voyage.idVoyage, conducteurID, dateTrajet, villeDepart, villeArrivee, prnm FROM voyage, membre, trajet WHERE `dateTrajet` < CURRENT_TIMESTAMP AND trajet.conducteurID = membre.idMembre AND trajet.idTrajet = voyage.idTrajet AND voyage.idPassager = " . $_SESSION['membre']->getIdMembre() . " GROUP BY idTrajet";
 $test = $query->queryBD($myQuery);
 
 $res = $query->recoverQueryInArray();
@@ -36,15 +36,10 @@ $res = $query->recoverQueryInArray();
 		$conducteur1[$value['conducteurID']] = $value['prnm'];	
 		$ResPassees[$value['idVoyage']] = new trajet($res[$key]['idTrajet'], $res[$key]['conducteurID'],"", $res[$key]['dateTrajet'], $res[$key]['villeDepart'], $res[$key]['villeArrivee'], "", "", null);
 	}
-	// echo "<pre>";
-	// var_dump($membre);
-	// echo "</pre>";	
-	// echo "<pre>";
-	//var_dump($ResPassees);
-	// echo "</pre>";
+
 // _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
-$myQuery1 = "SELECT voyage.idVoyage, voyage.idTrajet, conducteurID, dateTrajet, villeDepart, villeArrivee, prnm FROM voyage, membre, trajet WHERE `dateTrajet` > CURRENT_TIMESTAMP AND trajet.conducteurID = membre.idMembre AND trajet.idTrajet = voyage.idTrajet AND voyage.idPassager = " . $_SESSION['membre']->getIdMembre();
+$myQuery1 = "SELECT voyage.idTrajet, voyage.idVoyage, conducteurID, dateTrajet, villeDepart, villeArrivee, prnm FROM voyage, membre, trajet WHERE `dateTrajet` > CURRENT_TIMESTAMP AND trajet.conducteurID = membre.idMembre AND trajet.idTrajet = voyage.idTrajet AND voyage.idPassager = " . $_SESSION['membre']->getIdMembre() . " GROUP BY idTrajet";
 $test2 = $query->queryBD($myQuery1);
 
 $res2 = $query->recoverQueryInArray();

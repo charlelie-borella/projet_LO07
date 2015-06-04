@@ -15,6 +15,7 @@ function deb($date, $nbPlace, $villeDep, $villeAr){
 				    <th>Horaire(s)</th>
 				    <th>Place(s) disponible(s)</th> 
 				    <th>Prix</th>
+				    <th style='width: 60px'></th>
 				    <th></th>
 				</tr>
 html;
@@ -37,13 +38,12 @@ html;
 // _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 //
 //Fonction qui vérifie que le nombre de places encore disponibles pour le trajet.
-function trajet($active, $heure, $nbPlace, $prix, $idTrajet, $idConducteur){
+function trajet($active, $heure, $nbPlace, $nbPlaceDisponible, $prix, $idTrajet, $idConducteur){
 
 	$html=<<<html
 		<tr><td>$heure
 			<td>$nbPlace
 			<td>$prix €			  	  
-			<td>
 html;
 // SI l'utilisateur est connecté : 
 	if(isset($_SESSION['membre'])){
@@ -53,7 +53,8 @@ html;
 		if($_SESSION['membre']->getIdMembre() == $idConducteur )
 		{
 			$html.=<<<html
-					<button disabled="disabled" type="button" class="btn btn-warning button-with-min">Votre trajet</button>
+					<td style='width: 100px'></td>
+					<td><button disabled="disabled" type="button" class="btn btn-warning button-with-min">Votre trajet</button></td>
 html;
 		}
 		// SINON l'on regarde s'il y a encore des places libres pour le trajet.
@@ -62,14 +63,22 @@ html;
 			if($active){
 				$html.=<<<html
 					<form action="reservationTraitement.php" method="POST">
-					<button type='submit' class='btn btn-primary button-with-min'>Réserver</button>
+					<td style='width: 60px'><select name="nbPlaces" class="form-control" style='width: 60px'>
+html;
+				for ($i=1; $i <= $nbPlaceDisponible; $i++) { 
+					$html.= "<option value=$i>$i</option>";
+				}
+				$html.=<<<html
+					</select></td>
+					<td style='width: 60px'><button type='submit' class='btn btn-primary button-with-min'>Réserver</button></td>
 					<input type="hidden" name="idTrajet" value="$idTrajet">				
 					</form>	
 html;
 			}
 			//SINON le bouton est déssactivé et il est écrit "COMPLET"
 			else{
-				$html.="<button type='submit' class='btn btn-danger button-with-min' disabled='disabled'>Complet</button>";
+				$html.="<td style='width: 60px'></td>";
+				$html.="<td style='width: 100px'><button type='submit' class='btn btn-danger button-with-min' disabled='disabled' >Complet</button></td>";
 			}
 		}
 	}else

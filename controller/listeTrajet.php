@@ -27,13 +27,14 @@ if(isset($_SESSION['listeTrajet'])){
 		$heure = $value->getHeure();//heure du trajet
 		$placePrise = $_SESSION['placeRestante'][$value->getidTrajet()];//Nombre de place déjà prise
 		$nbPlace = $placePrise . "/".$value->getNbPlace();//Affichage nombre de places prises / places totales
+		$nbPlaceDisponible = $value->getNbPlace() - $placePrise;
 		$prix = $value->getPrix();//prix
 		$idTrajet = $value->getIdTrajet();//Identifiant du trajet
 		$idConducteur = $value->getConducteurID();
 
 		$bol = $placePrise < $value->getNbPlace();//Récupère un boolean vrai s'il reste de la place
 	
-		$html.= trajet($bol, $heure, $nbPlace, $prix, $idTrajet, $idConducteur);//Affichage de trajet
+		$html.= trajet($bol, $heure, $nbPlace, $nbPlaceDisponible, $prix, $idTrajet, $idConducteur);//Affichage de trajet
 	}
 
 }
